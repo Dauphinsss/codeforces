@@ -1,0 +1,685 @@
+- generic [ref=e2]:
+  - link "Saltar al contenido principal" [ref=e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - link "Accessibleforces, ir al inicio" [ref=e7] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e9]: Practice arena
+      - generic [ref=e10]:
+        - navigation "Navegacion principal" [ref=e11]:
+          - link "Inicio" [ref=e12] [cursor=pointer]:
+            - /url: /
+            - img [ref=e13]
+            - text: Inicio
+          - link "Problemas" [ref=e16] [cursor=pointer]:
+            - /url: /problemset
+            - img [ref=e17]
+            - text: Problemas
+          - link "Contests" [ref=e23] [cursor=pointer]:
+            - /url: /contests
+            - img [ref=e24]
+            - text: Contests
+          - link "Enviar" [ref=e26] [cursor=pointer]:
+            - /url: /submit
+            - img [ref=e27]
+            - text: Enviar
+          - link "Perfil" [ref=e30] [cursor=pointer]:
+            - /url: /profile/accessiblecoder
+            - img [ref=e31]
+            - text: Perfil
+        - generic [ref=e34]:
+          - link "Entrar" [ref=e35] [cursor=pointer]:
+            - /url: /enter
+            - img [ref=e36]
+            - text: Entrar
+          - link "Registrarse" [ref=e39] [cursor=pointer]:
+            - /url: /register
+            - img [ref=e40]
+            - text: Registrarse
+          - group [ref=e43]:
+            - generic "Preferencias" [ref=e44] [cursor=pointer]:
+              - img [ref=e45]
+              - text: Preferencias
+            - option "Normal" [selected]
+            - option "Grande"
+            - option "Extra grande"
+  - main [ref=e48]:
+    - generic [ref=e49]:
+      - navigation "Migas de pan" [ref=e50]:
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - link "Inicio" [ref=e53] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e54]: /
+          - listitem [ref=e55]:
+            - generic [ref=e56]: Problemset
+      - region "Lista de problemas" [ref=e57]:
+        - paragraph [ref=e58]: Problemset
+        - heading "Lista de problemas" [level=1] [ref=e59]:
+          - img [ref=e60]
+          - text: Lista de problemas
+        - paragraph [ref=e61]: Encuentra ejercicios por titulo, tag o dificultad y abre el enunciado para empezar a resolver.
+      - region "Filtrar problemas" [ref=e63]:
+        - generic [ref=e64]:
+          - heading "Filtrar problemas" [level=2] [ref=e66]:
+            - img [ref=e67]
+            - text: Filtrar problemas
+          - generic [ref=e69]:
+            - generic [ref=e70]:
+              - text: Buscar por titulo o id
+              - generic [ref=e71]:
+                - img
+                - textbox "Buscar por titulo o id" [ref=e72]:
+                  - /placeholder: "Ej: 100A o Team Queue"
+            - generic [ref=e73]:
+              - text: Tag
+              - combobox "Tag" [ref=e74]:
+                - option "Todos los tags" [selected]
+                - option "bfs"
+                - option "binary search"
+                - option "bitmasks"
+                - option "brute force"
+                - option "combinatorics"
+                - option "constructive algorithms"
+                - option "data structures"
+                - option "dates"
+                - option "dfs"
+                - option "dijkstra"
+                - option "dp"
+                - option "dsu"
+                - option "flows"
+                - option "geometry"
+                - option "graphs"
+                - option "greedy"
+                - option "hashing"
+                - option "implementation"
+                - option "interactive"
+                - option "lazy propagation"
+                - option "math"
+                - option "matrices"
+                - option "number theory"
+                - option "prefix sums"
+                - option "probabilities"
+                - option "queues"
+                - option "segment tree"
+                - option "sets"
+                - option "shortest paths"
+                - option "sortings"
+                - option "strings"
+                - option "suffix array"
+                - option "trees"
+                - option "two pointers"
+          - group "Rango de dificultad" [ref=e75]:
+            - generic [ref=e76]: Rango de dificultad
+            - generic [ref=e77]:
+              - generic [ref=e78] [cursor=pointer]:
+                - radio "Todas" [checked] [ref=e79]
+                - generic: Todas
+              - generic [ref=e80] [cursor=pointer]:
+                - radio "800-1199" [ref=e81]
+                - generic: 800-1199
+              - generic [ref=e82] [cursor=pointer]:
+                - radio "1200-1599" [ref=e83]
+                - generic: 1200-1599
+              - generic [ref=e84] [cursor=pointer]:
+                - radio "1600-1899" [ref=e85]
+                - generic: 1600-1899
+              - generic [ref=e86] [cursor=pointer]:
+                - radio "1900-2199" [ref=e87]
+                - generic: 1900-2199
+              - generic [ref=e88] [cursor=pointer]:
+                - radio "2200+" [ref=e89]
+                - generic: 2200+
+          - paragraph [ref=e90]: "Atajos opcionales: presiona / para buscar, o g y luego p para volver a Problemset."
+        - status [ref=e91]: 31 problemas encontrados
+        - list [ref=e92]:
+          - listitem [ref=e93]:
+            - link "#100A 28.431 resueltos Team Queue implementation queues Dificultad 800 Resolver →" [ref=e94] [cursor=pointer]:
+              - /url: /problemset/problem/100A
+              - generic [ref=e95]:
+                - generic [ref=e96]:
+                  - generic [ref=e97]: "#100A"
+                  - generic [ref=e98]: ·
+                  - generic [ref=e99]: 28.431 resueltos
+                - heading "Team Queue" [level=3] [ref=e100]
+                - generic [ref=e101]:
+                  - generic [ref=e102]: implementation
+                  - generic [ref=e103]: queues
+              - generic [ref=e104]:
+                - generic "Dificultad 800" [ref=e105]:
+                  - generic [ref=e106]: ●
+                  - text: "800"
+                - generic [ref=e107]: Resolver →
+          - listitem [ref=e108]:
+            - link "#101B 19.402 resueltos Contest Warmup math greedy Dificultad 900 Resolver →" [ref=e109] [cursor=pointer]:
+              - /url: /problemset/problem/101B
+              - generic [ref=e110]:
+                - generic [ref=e111]:
+                  - generic [ref=e112]: "#101B"
+                  - generic [ref=e113]: ·
+                  - generic [ref=e114]: 19.402 resueltos
+                - heading "Contest Warmup" [level=3] [ref=e115]
+                - generic [ref=e116]:
+                  - generic [ref=e117]: math
+                  - generic [ref=e118]: greedy
+              - generic [ref=e119]:
+                - generic "Dificultad 900" [ref=e120]:
+                  - generic [ref=e121]: ●
+                  - text: "900"
+                - generic [ref=e122]: Resolver →
+          - listitem [ref=e123]:
+            - link "#102C 15.120 resueltos Balanced Prefixes strings prefix sums Dificultad 1100 Resolver →" [ref=e124] [cursor=pointer]:
+              - /url: /problemset/problem/102C
+              - generic [ref=e125]:
+                - generic [ref=e126]:
+                  - generic [ref=e127]: "#102C"
+                  - generic [ref=e128]: ·
+                  - generic [ref=e129]: 15.120 resueltos
+                - heading "Balanced Prefixes" [level=3] [ref=e130]
+                - generic [ref=e131]:
+                  - generic [ref=e132]: strings
+                  - generic [ref=e133]: prefix sums
+              - generic [ref=e134]:
+                - generic "Dificultad 1100" [ref=e135]:
+                  - generic [ref=e136]: ●
+                  - text: "1100"
+                - generic [ref=e137]: Resolver →
+          - listitem [ref=e138]:
+            - link "#103D 10.013 resueltos Metro Signs graphs bfs Dificultad 1200 Resolver →" [ref=e139] [cursor=pointer]:
+              - /url: /problemset/problem/103D
+              - generic [ref=e140]:
+                - generic [ref=e141]:
+                  - generic [ref=e142]: "#103D"
+                  - generic [ref=e143]: ·
+                  - generic [ref=e144]: 10.013 resueltos
+                - heading "Metro Signs" [level=3] [ref=e145]
+                - generic [ref=e146]:
+                  - generic [ref=e147]: graphs
+                  - generic [ref=e148]: bfs
+              - generic [ref=e149]:
+                - generic "Dificultad 1200" [ref=e150]:
+                  - generic [ref=e151]: ●
+                  - text: "1200"
+                - generic [ref=e152]: Resolver →
+          - listitem [ref=e153]:
+            - link "#104E 16.873 resueltos Array Festival sortings two pointers Dificultad 1300 Resolver →" [ref=e154] [cursor=pointer]:
+              - /url: /problemset/problem/104E
+              - generic [ref=e155]:
+                - generic [ref=e156]:
+                  - generic [ref=e157]: "#104E"
+                  - generic [ref=e158]: ·
+                  - generic [ref=e159]: 16.873 resueltos
+                - heading "Array Festival" [level=3] [ref=e160]
+                - generic [ref=e161]:
+                  - generic [ref=e162]: sortings
+                  - generic [ref=e163]: two pointers
+              - generic [ref=e164]:
+                - generic "Dificultad 1300" [ref=e165]:
+                  - generic [ref=e166]: ●
+                  - text: "1300"
+                - generic [ref=e167]: Resolver →
+          - listitem [ref=e168]:
+            - link "#105F 8344 resueltos Notebook Recovery hashing strings Dificultad 1400 Resolver →" [ref=e169] [cursor=pointer]:
+              - /url: /problemset/problem/105F
+              - generic [ref=e170]:
+                - generic [ref=e171]:
+                  - generic [ref=e172]: "#105F"
+                  - generic [ref=e173]: ·
+                  - generic [ref=e174]: 8344 resueltos
+                - heading "Notebook Recovery" [level=3] [ref=e175]
+                - generic [ref=e176]:
+                  - generic [ref=e177]: hashing
+                  - generic [ref=e178]: strings
+              - generic [ref=e179]:
+                - generic "Dificultad 1400" [ref=e180]:
+                  - generic [ref=e181]: ●
+                  - text: "1400"
+                - generic [ref=e182]: Resolver →
+          - listitem [ref=e183]:
+            - link "#106A 7229 resueltos Road Repair dsu graphs Dificultad 1500 Resolver →" [ref=e184] [cursor=pointer]:
+              - /url: /problemset/problem/106A
+              - generic [ref=e185]:
+                - generic [ref=e186]:
+                  - generic [ref=e187]: "#106A"
+                  - generic [ref=e188]: ·
+                  - generic [ref=e189]: 7229 resueltos
+                - heading "Road Repair" [level=3] [ref=e190]
+                - generic [ref=e191]:
+                  - generic [ref=e192]: dsu
+                  - generic [ref=e193]: graphs
+              - generic [ref=e194]:
+                - generic "Dificultad 1500" [ref=e195]:
+                  - generic [ref=e196]: ●
+                  - text: "1500"
+                - generic [ref=e197]: Resolver →
+          - listitem [ref=e198]:
+            - link "#107B 6210 resueltos Festival Seats binary search greedy Dificultad 1600 Resolver →" [ref=e199] [cursor=pointer]:
+              - /url: /problemset/problem/107B
+              - generic [ref=e200]:
+                - generic [ref=e201]:
+                  - generic [ref=e202]: "#107B"
+                  - generic [ref=e203]: ·
+                  - generic [ref=e204]: 6210 resueltos
+                - heading "Festival Seats" [level=3] [ref=e205]
+                - generic [ref=e206]:
+                  - generic [ref=e207]: binary search
+                  - generic [ref=e208]: greedy
+              - generic [ref=e209]:
+                - generic "Dificultad 1600" [ref=e210]:
+                  - generic [ref=e211]: ●
+                  - text: "1600"
+                - generic [ref=e212]: Resolver →
+          - listitem [ref=e213]:
+            - link "#108C 5301 resueltos Colorful Grid dp combinatorics Dificultad 1700 Resolver →" [ref=e214] [cursor=pointer]:
+              - /url: /problemset/problem/108C
+              - generic [ref=e215]:
+                - generic [ref=e216]:
+                  - generic [ref=e217]: "#108C"
+                  - generic [ref=e218]: ·
+                  - generic [ref=e219]: 5301 resueltos
+                - heading "Colorful Grid" [level=3] [ref=e220]
+                - generic [ref=e221]:
+                  - generic [ref=e222]: dp
+                  - generic [ref=e223]: combinatorics
+              - generic [ref=e224]:
+                - generic "Dificultad 1700" [ref=e225]:
+                  - generic [ref=e226]: ●
+                  - text: "1700"
+                - generic [ref=e227]: Resolver →
+          - listitem [ref=e228]:
+            - link "#109D 4820 resueltos Archive Search data structures sets Dificultad 1800 Resolver →" [ref=e229] [cursor=pointer]:
+              - /url: /problemset/problem/109D
+              - generic [ref=e230]:
+                - generic [ref=e231]:
+                  - generic [ref=e232]: "#109D"
+                  - generic [ref=e233]: ·
+                  - generic [ref=e234]: 4820 resueltos
+                - heading "Archive Search" [level=3] [ref=e235]
+                - generic [ref=e236]:
+                  - generic [ref=e237]: data structures
+                  - generic [ref=e238]: sets
+              - generic [ref=e239]:
+                - generic "Dificultad 1800" [ref=e240]:
+                  - generic [ref=e241]: ●
+                  - text: "1800"
+                - generic [ref=e242]: Resolver →
+          - listitem [ref=e243]:
+            - link "#110E 3744 resueltos Late Submission dp probabilities Dificultad 1900 Resolver →" [ref=e244] [cursor=pointer]:
+              - /url: /problemset/problem/110E
+              - generic [ref=e245]:
+                - generic [ref=e246]:
+                  - generic [ref=e247]: "#110E"
+                  - generic [ref=e248]: ·
+                  - generic [ref=e249]: 3744 resueltos
+                - heading "Late Submission" [level=3] [ref=e250]
+                - generic [ref=e251]:
+                  - generic [ref=e252]: dp
+                  - generic [ref=e253]: probabilities
+              - generic [ref=e254]:
+                - generic "Dificultad 1900" [ref=e255]:
+                  - generic [ref=e256]: ●
+                  - text: "1900"
+                - generic [ref=e257]: Resolver →
+          - listitem [ref=e258]:
+            - link "#111F 3311 resueltos Rating Split constructive algorithms Dificultad 2000 Resolver →" [ref=e259] [cursor=pointer]:
+              - /url: /problemset/problem/111F
+              - generic [ref=e260]:
+                - generic [ref=e261]:
+                  - generic [ref=e262]: "#111F"
+                  - generic [ref=e263]: ·
+                  - generic [ref=e264]: 3311 resueltos
+                - heading "Rating Split" [level=3] [ref=e265]
+                - generic [ref=e267]: constructive algorithms
+              - generic [ref=e268]:
+                - generic "Dificultad 2000" [ref=e269]:
+                  - generic [ref=e270]: ●
+                  - text: "2000"
+                - generic [ref=e271]: Resolver →
+          - listitem [ref=e272]:
+            - link "#112A 2920 resueltos Graph Garden trees dfs Dificultad 2100 Resolver →" [ref=e273] [cursor=pointer]:
+              - /url: /problemset/problem/112A
+              - generic [ref=e274]:
+                - generic [ref=e275]:
+                  - generic [ref=e276]: "#112A"
+                  - generic [ref=e277]: ·
+                  - generic [ref=e278]: 2920 resueltos
+                - heading "Graph Garden" [level=3] [ref=e279]
+                - generic [ref=e280]:
+                  - generic [ref=e281]: trees
+                  - generic [ref=e282]: dfs
+              - generic [ref=e283]:
+                - generic "Dificultad 2100" [ref=e284]:
+                  - generic [ref=e285]: ●
+                  - text: "2100"
+                - generic [ref=e286]: Resolver →
+          - listitem [ref=e287]:
+            - link "#113B 2108 resueltos Hidden Permutation math interactive Dificultad 2200 Resolver →" [ref=e288] [cursor=pointer]:
+              - /url: /problemset/problem/113B
+              - generic [ref=e289]:
+                - generic [ref=e290]:
+                  - generic [ref=e291]: "#113B"
+                  - generic [ref=e292]: ·
+                  - generic [ref=e293]: 2108 resueltos
+                - heading "Hidden Permutation" [level=3] [ref=e294]
+                - generic [ref=e295]:
+                  - generic [ref=e296]: math
+                  - generic [ref=e297]: interactive
+              - generic [ref=e298]:
+                - generic "Dificultad 2200" [ref=e299]:
+                  - generic [ref=e300]: ●
+                  - text: "2200"
+                - generic [ref=e301]: Resolver →
+          - listitem [ref=e302]:
+            - link "#114C 1876 resueltos Segment Painter lazy propagation segment tree Dificultad 2300 Resolver →" [ref=e303] [cursor=pointer]:
+              - /url: /problemset/problem/114C
+              - generic [ref=e304]:
+                - generic [ref=e305]:
+                  - generic [ref=e306]: "#114C"
+                  - generic [ref=e307]: ·
+                  - generic [ref=e308]: 1876 resueltos
+                - heading "Segment Painter" [level=3] [ref=e309]
+                - generic [ref=e310]:
+                  - generic [ref=e311]: lazy propagation
+                  - generic [ref=e312]: segment tree
+              - generic [ref=e313]:
+                - generic "Dificultad 2300" [ref=e314]:
+                  - generic [ref=e315]: ●
+                  - text: "2300"
+                - generic [ref=e316]: Resolver →
+          - listitem [ref=e317]:
+            - link "#115D 1522 resueltos Cipher Walk graphs shortest paths Dificultad 2400 Resolver →" [ref=e318] [cursor=pointer]:
+              - /url: /problemset/problem/115D
+              - generic [ref=e319]:
+                - generic [ref=e320]:
+                  - generic [ref=e321]: "#115D"
+                  - generic [ref=e322]: ·
+                  - generic [ref=e323]: 1522 resueltos
+                - heading "Cipher Walk" [level=3] [ref=e324]
+                - generic [ref=e325]:
+                  - generic [ref=e326]: graphs
+                  - generic [ref=e327]: shortest paths
+              - generic [ref=e328]:
+                - generic "Dificultad 2400" [ref=e329]:
+                  - generic [ref=e330]: ●
+                  - text: "2400"
+                - generic [ref=e331]: Resolver →
+          - listitem [ref=e332]:
+            - link "#116E 1002 resueltos Library Compression suffix array strings Dificultad 2500 Resolver →" [ref=e333] [cursor=pointer]:
+              - /url: /problemset/problem/116E
+              - generic [ref=e334]:
+                - generic [ref=e335]:
+                  - generic [ref=e336]: "#116E"
+                  - generic [ref=e337]: ·
+                  - generic [ref=e338]: 1002 resueltos
+                - heading "Library Compression" [level=3] [ref=e339]
+                - generic [ref=e340]:
+                  - generic [ref=e341]: suffix array
+                  - generic [ref=e342]: strings
+              - generic [ref=e343]:
+                - generic "Dificultad 2500" [ref=e344]:
+                  - generic [ref=e345]: ●
+                  - text: "2500"
+                - generic [ref=e346]: Resolver →
+          - listitem [ref=e347]:
+            - link "#117F 811 resueltos Training Matrix matrices dp Dificultad 2600 Resolver →" [ref=e348] [cursor=pointer]:
+              - /url: /problemset/problem/117F
+              - generic [ref=e349]:
+                - generic [ref=e350]:
+                  - generic [ref=e351]: "#117F"
+                  - generic [ref=e352]: ·
+                  - generic [ref=e353]: 811 resueltos
+                - heading "Training Matrix" [level=3] [ref=e354]
+                - generic [ref=e355]:
+                  - generic [ref=e356]: matrices
+                  - generic [ref=e357]: dp
+              - generic [ref=e358]:
+                - generic "Dificultad 2600" [ref=e359]:
+                  - generic [ref=e360]: ●
+                  - text: "2600"
+                - generic [ref=e361]: Resolver →
+          - listitem [ref=e362]:
+            - link "#118A 24.789 resueltos Code Review implementation Dificultad 800 Resolver →" [ref=e363] [cursor=pointer]:
+              - /url: /problemset/problem/118A
+              - generic [ref=e364]:
+                - generic [ref=e365]:
+                  - generic [ref=e366]: "#118A"
+                  - generic [ref=e367]: ·
+                  - generic [ref=e368]: 24.789 resueltos
+                - heading "Code Review" [level=3] [ref=e369]
+                - generic [ref=e371]: implementation
+              - generic [ref=e372]:
+                - generic "Dificultad 800" [ref=e373]:
+                  - generic [ref=e374]: ●
+                  - text: "800"
+                - generic [ref=e375]: Resolver →
+          - listitem [ref=e376]:
+            - link "#119B 18.921 resueltos Lunch Break greedy Dificultad 1000 Resolver →" [ref=e377] [cursor=pointer]:
+              - /url: /problemset/problem/119B
+              - generic [ref=e378]:
+                - generic [ref=e379]:
+                  - generic [ref=e380]: "#119B"
+                  - generic [ref=e381]: ·
+                  - generic [ref=e382]: 18.921 resueltos
+                - heading "Lunch Break" [level=3] [ref=e383]
+                - generic [ref=e385]: greedy
+              - generic [ref=e386]:
+                - generic "Dificultad 1000" [ref=e387]:
+                  - generic [ref=e388]: ●
+                  - text: "1000"
+                - generic [ref=e389]: Resolver →
+          - listitem [ref=e390]:
+            - link "#120C 13.000 resueltos Keyboard Paths strings graphs Dificultad 1200 Resolver →" [ref=e391] [cursor=pointer]:
+              - /url: /problemset/problem/120C
+              - generic [ref=e392]:
+                - generic [ref=e393]:
+                  - generic [ref=e394]: "#120C"
+                  - generic [ref=e395]: ·
+                  - generic [ref=e396]: 13.000 resueltos
+                - heading "Keyboard Paths" [level=3] [ref=e397]
+                - generic [ref=e398]:
+                  - generic [ref=e399]: strings
+                  - generic [ref=e400]: graphs
+              - generic [ref=e401]:
+                - generic "Dificultad 1200" [ref=e402]:
+                  - generic [ref=e403]: ●
+                  - text: "1200"
+                - generic [ref=e404]: Resolver →
+          - listitem [ref=e405]:
+            - link "#121D 9100 resueltos Pairing Points geometry sortings Dificultad 1400 Resolver →" [ref=e406] [cursor=pointer]:
+              - /url: /problemset/problem/121D
+              - generic [ref=e407]:
+                - generic [ref=e408]:
+                  - generic [ref=e409]: "#121D"
+                  - generic [ref=e410]: ·
+                  - generic [ref=e411]: 9100 resueltos
+                - heading "Pairing Points" [level=3] [ref=e412]
+                - generic [ref=e413]:
+                  - generic [ref=e414]: geometry
+                  - generic [ref=e415]: sortings
+              - generic [ref=e416]:
+                - generic "Dificultad 1400" [ref=e417]:
+                  - generic [ref=e418]: ●
+                  - text: "1400"
+                - generic [ref=e419]: Resolver →
+          - listitem [ref=e420]:
+            - link "#122E 6452 resueltos Bitmask Lessons bitmasks dp Dificultad 1600 Resolver →" [ref=e421] [cursor=pointer]:
+              - /url: /problemset/problem/122E
+              - generic [ref=e422]:
+                - generic [ref=e423]:
+                  - generic [ref=e424]: "#122E"
+                  - generic [ref=e425]: ·
+                  - generic [ref=e426]: 6452 resueltos
+                - heading "Bitmask Lessons" [level=3] [ref=e427]
+                - generic [ref=e428]:
+                  - generic [ref=e429]: bitmasks
+                  - generic [ref=e430]: dp
+              - generic [ref=e431]:
+                - generic "Dificultad 1600" [ref=e432]:
+                  - generic [ref=e433]: ●
+                  - text: "1600"
+                - generic [ref=e434]: Resolver →
+          - listitem [ref=e435]:
+            - link "#123F 5002 resueltos Queue Reconstruction data structures Dificultad 1800 Resolver →" [ref=e436] [cursor=pointer]:
+              - /url: /problemset/problem/123F
+              - generic [ref=e437]:
+                - generic [ref=e438]:
+                  - generic [ref=e439]: "#123F"
+                  - generic [ref=e440]: ·
+                  - generic [ref=e441]: 5002 resueltos
+                - heading "Queue Reconstruction" [level=3] [ref=e442]
+                - generic [ref=e444]: data structures
+              - generic [ref=e445]:
+                - generic "Dificultad 1800" [ref=e446]:
+                  - generic [ref=e447]: ●
+                  - text: "1800"
+                - generic [ref=e448]: Resolver →
+          - listitem [ref=e449]:
+            - link "#124A 17.201 resueltos Clock Drift math Dificultad 900 Resolver →" [ref=e450] [cursor=pointer]:
+              - /url: /problemset/problem/124A
+              - generic [ref=e451]:
+                - generic [ref=e452]:
+                  - generic [ref=e453]: "#124A"
+                  - generic [ref=e454]: ·
+                  - generic [ref=e455]: 17.201 resueltos
+                - heading "Clock Drift" [level=3] [ref=e456]
+                - generic [ref=e458]: math
+              - generic [ref=e459]:
+                - generic "Dificultad 900" [ref=e460]:
+                  - generic [ref=e461]: ●
+                  - text: "900"
+                - generic [ref=e462]: Resolver →
+          - listitem [ref=e463]:
+            - link "#125B 4020 resueltos Packet Router graphs dijkstra Dificultad 1900 Resolver →" [ref=e464] [cursor=pointer]:
+              - /url: /problemset/problem/125B
+              - generic [ref=e465]:
+                - generic [ref=e466]:
+                  - generic [ref=e467]: "#125B"
+                  - generic [ref=e468]: ·
+                  - generic [ref=e469]: 4020 resueltos
+                - heading "Packet Router" [level=3] [ref=e470]
+                - generic [ref=e471]:
+                  - generic [ref=e472]: graphs
+                  - generic [ref=e473]: dijkstra
+              - generic [ref=e474]:
+                - generic "Dificultad 1900" [ref=e475]:
+                  - generic [ref=e476]: ●
+                  - text: "1900"
+                - generic [ref=e477]: Resolver →
+          - listitem [ref=e478]:
+            - link "#126C 7802 resueltos Modulo Market number theory Dificultad 1500 Resolver →" [ref=e479] [cursor=pointer]:
+              - /url: /problemset/problem/126C
+              - generic [ref=e480]:
+                - generic [ref=e481]:
+                  - generic [ref=e482]: "#126C"
+                  - generic [ref=e483]: ·
+                  - generic [ref=e484]: 7802 resueltos
+                - heading "Modulo Market" [level=3] [ref=e485]
+                - generic [ref=e487]: number theory
+              - generic [ref=e488]:
+                - generic "Dificultad 1500" [ref=e489]:
+                  - generic [ref=e490]: ●
+                  - text: "1500"
+                - generic [ref=e491]: Resolver →
+          - listitem [ref=e492]:
+            - link "#127D 11.119 resueltos Round Calendar brute force dates Dificultad 1100 Resolver →" [ref=e493] [cursor=pointer]:
+              - /url: /problemset/problem/127D
+              - generic [ref=e494]:
+                - generic [ref=e495]:
+                  - generic [ref=e496]: "#127D"
+                  - generic [ref=e497]: ·
+                  - generic [ref=e498]: 11.119 resueltos
+                - heading "Round Calendar" [level=3] [ref=e499]
+                - generic [ref=e500]:
+                  - generic [ref=e501]: brute force
+                  - generic [ref=e502]: dates
+              - generic [ref=e503]:
+                - generic "Dificultad 1100" [ref=e504]:
+                  - generic [ref=e505]: ●
+                  - text: "1100"
+                - generic [ref=e506]: Resolver →
+          - listitem [ref=e507]:
+            - link "#128E 2655 resueltos Tournament Tree trees dp Dificultad 2100 Resolver →" [ref=e508] [cursor=pointer]:
+              - /url: /problemset/problem/128E
+              - generic [ref=e509]:
+                - generic [ref=e510]:
+                  - generic [ref=e511]: "#128E"
+                  - generic [ref=e512]: ·
+                  - generic [ref=e513]: 2655 resueltos
+                - heading "Tournament Tree" [level=3] [ref=e514]
+                - generic [ref=e515]:
+                  - generic [ref=e516]: trees
+                  - generic [ref=e517]: dp
+              - generic [ref=e518]:
+                - generic "Dificultad 2100" [ref=e519]:
+                  - generic [ref=e520]: ●
+                  - text: "2100"
+                - generic [ref=e521]: Resolver →
+          - listitem [ref=e522]:
+            - link "#129F 420 resueltos Final Boss flows graphs Dificultad 2700 Resolver →" [ref=e523] [cursor=pointer]:
+              - /url: /problemset/problem/129F
+              - generic [ref=e524]:
+                - generic [ref=e525]:
+                  - generic [ref=e526]: "#129F"
+                  - generic [ref=e527]: ·
+                  - generic [ref=e528]: 420 resueltos
+                - heading "Final Boss" [level=3] [ref=e529]
+                - generic [ref=e530]:
+                  - generic [ref=e531]: flows
+                  - generic [ref=e532]: graphs
+              - generic [ref=e533]:
+                - generic "Dificultad 2700" [ref=e534]:
+                  - generic [ref=e535]: ●
+                  - text: "2700"
+                - generic [ref=e536]: Resolver →
+          - listitem [ref=e537]:
+            - link "#130A 32.111 resueltos Starter Pack implementation math Dificultad 800 Resolver →" [ref=e538] [cursor=pointer]:
+              - /url: /problemset/problem/130A
+              - generic [ref=e539]:
+                - generic [ref=e540]:
+                  - generic [ref=e541]: "#130A"
+                  - generic [ref=e542]: ·
+                  - generic [ref=e543]: 32.111 resueltos
+                - heading "Starter Pack" [level=3] [ref=e544]
+                - generic [ref=e545]:
+                  - generic [ref=e546]: implementation
+                  - generic [ref=e547]: math
+              - generic [ref=e548]:
+                - generic "Dificultad 800" [ref=e549]:
+                  - generic [ref=e550]: ●
+                  - text: "800"
+                - generic [ref=e551]: Resolver →
+  - contentinfo [ref=e552]:
+    - generic [ref=e553]:
+      - generic [ref=e554]:
+        - link "Accessibleforces, ir al inicio" [ref=e555] [cursor=pointer]:
+          - /url: /
+        - paragraph [ref=e557]: Plataforma demo para entrenar problemas, contests y perfiles de programacion competitiva.
+      - navigation "Navegacion del sitio" [ref=e558]:
+        - paragraph [ref=e559]: Sitio
+        - list [ref=e560]:
+          - listitem [ref=e561]:
+            - link "Problemas" [ref=e562] [cursor=pointer]:
+              - /url: /problemset
+          - listitem [ref=e563]:
+            - link "Contests" [ref=e564] [cursor=pointer]:
+              - /url: /contests
+          - listitem [ref=e565]:
+            - link "Enviar solucion" [ref=e566] [cursor=pointer]:
+              - /url: /submit
+      - navigation "Cuenta" [ref=e567]:
+        - paragraph [ref=e568]: Cuenta
+        - list [ref=e569]:
+          - listitem [ref=e570]:
+            - link "Entrar" [ref=e571] [cursor=pointer]:
+              - /url: /enter
+          - listitem [ref=e572]:
+            - link "Registrarse" [ref=e573] [cursor=pointer]:
+              - /url: /register
+          - listitem [ref=e574]:
+            - link "Perfil demo" [ref=e575] [cursor=pointer]:
+              - /url: /profile/accessiblecoder
+    - paragraph [ref=e577]: © 2026 Accessibleforces · Demo academico, sin afiliacion con Codeforces.
+  - button "Abrir tour de mejoras de accesibilidad" [ref=e579] [cursor=pointer]:
+    - img [ref=e580]

@@ -16,6 +16,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 
 <header
   class="site-header sticky top-0 z-30 border-b backdrop-blur"
+  data-tour="site-header"
 >
   <div class="flex min-h-[var(--header-height)] w-full items-center justify-between gap-2 px-3 py-2 sm:gap-3 sm:px-6 lg:px-8">
     <div class="flex min-w-0 items-center gap-2 sm:gap-3">
@@ -23,6 +24,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
         href="/"
         class="brand-link flex min-h-11 items-center gap-2 rounded-md px-1 no-underline"
         aria-label="Accessibleforces, ir al inicio"
+        data-tour="brand"
       >
         <span class="brand-logo-wrap" aria-hidden="true">
           <img
@@ -49,7 +51,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
     </div>
 
     <div class="hidden lg:flex lg:items-center lg:justify-between lg:gap-4">
-      <nav aria-label="Navegacion principal" class="flex flex-wrap items-center gap-1">
+      <nav aria-label="Navegacion principal" class="flex flex-wrap items-center gap-1" data-tour="main-nav">
         {nav.map((item) => {
           const active = isActive(item.href);
           const Icon = item.icon;
@@ -69,9 +71,9 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 
       <div class="flex flex-wrap items-center gap-2">
         <a class="btn btn-ghost" href="/enter"><LogIn aria-hidden="true" size={17} />Entrar</a>
-        <a class="btn btn-primary" href="/register"><UserRoundPlus aria-hidden="true" size={17} />Registrarse</a>
+        <a class="btn btn-primary" href="/register" data-tour="primary-action"><UserRoundPlus aria-hidden="true" size={17} />Registrarse</a>
         <details class="relative">
-          <summary class="btn btn-ghost list-none cursor-pointer"><Settings aria-hidden="true" size={17} />Preferencias</summary>
+          <summary class="btn btn-ghost list-none cursor-pointer" data-tour="preferences-trigger"><Settings aria-hidden="true" size={17} />Preferencias</summary>
           <div
             class="surface-app border-app absolute right-0 mt-2 w-[min(92vw,24rem)] rounded-md border p-3 shadow-lg"
           >
@@ -82,7 +84,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
     </div>
 
     <details class="mobile-menu-root lg:hidden">
-      <summary class="btn btn-ghost list-none cursor-pointer" aria-label="Abrir menu de navegacion">
+      <summary class="btn btn-ghost list-none cursor-pointer" aria-label="Abrir menu de navegacion" data-tour="mobile-menu-button">
         <span aria-hidden="true" class="grid gap-1">
           <span class="menu-line menu-line-top block h-0.5 w-5 rounded"></span>
           <span class="menu-line menu-line-middle block h-0.5 w-5 rounded"></span>
@@ -92,7 +94,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       <div
         class="mobile-menu-panel content-start gap-4 overflow-y-auto border-y p-4 shadow-lg lg:hidden"
       >
-        <nav aria-label="Navegacion principal movil" class="container grid gap-2">
+        <nav aria-label="Navegacion principal movil" class="container grid gap-2" data-tour="main-nav">
           {nav.map((item) => {
             const active = isActive(item.href);
             const Icon = item.icon;

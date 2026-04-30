@@ -4,6 +4,7 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import SkipLink from '@/components/SkipLink.astro';
 import KeyboardShortcuts from '@/components/KeyboardShortcuts';
+import AccessibilityTour from '@/components/AccessibilityTour';
 
 interface Props {
   title: string;
@@ -39,11 +40,12 @@ const { title, description = 'Clon accesible de Codeforces con navegacion semant
     <div class="app-shell">
       <SkipLink />
       <Header />
-      <main id="main-content" class="container soft-enter py-6" tabindex="-1">
+      <main id="main-content" class="container soft-enter py-6" tabindex="-1" data-tour="main-content">
         <slot />
       </main>
       <Footer />
       <KeyboardShortcuts client:load />
+      <AccessibilityTour client:load />
     </div>
   </body>
 </html>

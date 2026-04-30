@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
+@import "shepherd.js/dist/css/shepherd.css";
 
 :root {
   color-scheme: light;
@@ -72,7 +73,7 @@
   --color-link-hover: #dbeafe;
   --color-primary: #60a5fa;
   --color-primary-hover: #93c5fd;
-  --color-primary-text: #08111f;
+  --color-primary-text: #020617;
   --color-accent: #2dd4bf;
   --color-danger: #fca5a5;
   --color-danger-soft: #3a1414;
@@ -785,8 +786,97 @@ details[open] .menu-line-bottom {
   border-color: var(--color-primary);
 }
 
+.input-icon-wrap {
+  position: relative;
+  display: block;
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  z-index: 1;
+  color: var(--color-muted);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.input-with-icon {
+  padding-left: 2.65rem;
+}
+
 .input-error {
   border-color: var(--color-danger);
+}
+
+.filter-choice {
+  position: relative;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-text-strong);
+  padding: 0.5rem 0.95rem;
+  font-weight: var(--font-weight-strong);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background 140ms ease,
+    border-color 140ms ease,
+    color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.filter-choice input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.filter-choice span {
+  pointer-events: none;
+}
+
+.filter-choice:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-strong);
+  color: var(--color-primary);
+}
+
+.filter-choice:has(input:checked) {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-choice:has(input:checked):hover {
+  border-color: var(--color-primary-hover);
+  background: var(--color-primary-hover);
+  color: var(--color-primary-text);
+}
+
+.filter-choice:has(input:focus-visible) {
+  outline-color: #2563eb;
+  box-shadow: 0 0 0 4px color-mix(in srgb, #2563eb 28%, transparent);
+}
+
+:root[data-theme="dark"] .filter-choice:has(input:checked) {
+  border-color: #93c5fd;
+  background: #bfdbfe;
+  color: #020617;
+}
+
+:root[data-theme="dark"] .filter-choice:has(input:checked):hover {
+  border-color: #dbeafe;
+  background: #dbeafe;
+  color: #020617;
 }
 
 .code-block,
@@ -826,6 +916,202 @@ details[open] .menu-line-bottom {
 
 .tooltip-arrow {
   fill: var(--color-surface);
+}
+
+.accessibility-tour-button {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 70;
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+}
+
+.accessibility-tour-button:hover {
+  background: var(--color-primary-hover);
+}
+
+body .accessibility-shepherd-step.shepherd-element {
+  width: min(22rem, calc(100vw - 2rem));
+  max-width: calc(100vw - 2rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-lg);
+  font-family: inherit;
+  outline: none;
+  overflow: hidden;
+}
+
+body .accessibility-shepherd-step.shepherd-element * {
+  font-family: inherit;
+}
+
+body .accessibility-shepherd-step .shepherd-content {
+  border-radius: inherit;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+body .accessibility-shepherd-step .shepherd-header {
+  min-height: 44px;
+  align-items: start;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--color-surface);
+  padding: 1rem 1rem 0.35rem;
+}
+
+body .accessibility-shepherd-step.shepherd-has-title .shepherd-content .shepherd-header {
+  background: var(--color-surface);
+}
+
+body .accessibility-shepherd-step .shepherd-title {
+  color: var(--color-text-strong);
+  font-size: var(--text-card-title);
+  font-weight: var(--font-weight-strong);
+  line-height: 1.35;
+  padding-right: 0.75rem;
+}
+
+body .accessibility-shepherd-step .shepherd-cancel-icon {
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: 1.35rem;
+  line-height: 1;
+  opacity: 1;
+}
+
+body .accessibility-shepherd-step .shepherd-cancel-icon:hover,
+body .accessibility-shepherd-step .shepherd-cancel-icon:focus-visible {
+  background: var(--color-surface-strong);
+  color: var(--color-primary);
+}
+
+body .accessibility-shepherd-step.shepherd-has-title .shepherd-content .shepherd-cancel-icon {
+  color: var(--color-text);
+}
+
+body .accessibility-shepherd-step.shepherd-has-title .shepherd-content .shepherd-cancel-icon:hover,
+body .accessibility-shepherd-step.shepherd-has-title .shepherd-content .shepherd-cancel-icon:focus-visible {
+  color: var(--color-primary);
+}
+
+body .accessibility-shepherd-step .shepherd-text {
+  color: var(--color-muted-strong);
+  font-size: var(--text-small);
+  line-height: 1.5;
+  padding: 0.25rem 1rem 0;
+}
+
+body .accessibility-shepherd-step .shepherd-text p {
+  margin: 0;
+}
+
+body .accessibility-shepherd-step .shepherd-text p + p {
+  margin-top: 0.8rem;
+}
+
+body .accessibility-shepherd-step .accessibility-tour-progress {
+  color: var(--color-muted);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+}
+
+body .accessibility-shepherd-step .shepherd-footer {
+  gap: 0.5rem;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+body .accessibility-shepherd-step .shepherd-button {
+  display: inline-flex;
+  min-height: 44px;
+  min-width: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  padding: 0.5rem 0.9rem;
+  font: inherit;
+  font-weight: var(--font-weight-strong);
+  line-height: 1.2;
+}
+
+body .accessibility-shepherd-step .shepherd-button:hover,
+body .accessibility-shepherd-step .shepherd-button:focus-visible {
+  border-color: var(--color-primary-hover);
+  background: var(--color-primary-hover);
+  color: var(--color-primary-text);
+}
+
+body .accessibility-shepherd-step .shepherd-button-secondary {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+body .accessibility-shepherd-step .shepherd-button-secondary:hover,
+body .accessibility-shepherd-step .shepherd-button-secondary:focus-visible {
+  border-color: var(--color-primary);
+  background: var(--color-surface-strong);
+  color: var(--color-primary);
+}
+
+body .accessibility-shepherd-step .shepherd-button:disabled,
+body .accessibility-shepherd-step .shepherd-button:disabled:hover,
+body .accessibility-shepherd-step .shepherd-button:disabled:focus-visible {
+  opacity: 1;
+  border-color: var(--color-border);
+  background: var(--color-surface-strong);
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
+body .accessibility-shepherd-step .shepherd-arrow::before {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+body .accessibility-shepherd-step.shepherd-has-title[data-popper-placement^="bottom"] > .shepherd-arrow::before {
+  background: var(--color-surface);
+}
+
+:root[data-theme="dark"] body .accessibility-shepherd-step.shepherd-element,
+:root[data-theme="dark"] body .accessibility-shepherd-step .shepherd-content,
+:root[data-theme="dark"] body .accessibility-shepherd-step .shepherd-header {
+  background: var(--color-surface);
+}
+
+:root[data-theme="dark"] body .accessibility-shepherd-step .shepherd-title,
+:root[data-theme="dark"] body .accessibility-shepherd-step .shepherd-cancel-icon {
+  color: var(--color-text-strong);
+}
+
+body .shepherd-modal-overlay-container svg path {
+  fill: color-mix(in srgb, var(--color-text-strong) 58%, transparent);
+}
+
+body .shepherd-enabled.shepherd-target {
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--color-primary) 32%, transparent),
+    var(--shadow);
 }
 
 .stat-card {

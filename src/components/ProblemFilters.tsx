@@ -1,4 +1,4 @@
-import { useDeferredValue, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Search, Filter, X } from 'lucide-react';
 import clsx from 'clsx';
 import type { Problem } from '@/data/problems';
@@ -29,15 +29,14 @@ export default function ProblemFilters({ problems, tags }: Props) {
   const [query, setQuery] = useState('');
   const [tag, setTag] = useState('todos');
   const [range, setRange] = useState('todos');
-  const deferredQuery = useDeferredValue(query);
 
   const filtered = useMemo(() => problems.filter((problem) => {
     const selectedRange = difficultyRanges.find((item) => item.id === range) ?? difficultyRanges[0];
-    const matchesQuery = `${problem.id} ${problem.title}`.toLowerCase().includes(deferredQuery.toLowerCase());
+    const matchesQuery = `${problem.id} ${problem.title}`.toLowerCase().includes(query.toLowerCase());
     const matchesTag = tag === 'todos' || problem.tags.includes(tag);
     const matchesDifficulty = problem.difficulty >= selectedRange.min && problem.difficulty <= selectedRange.max;
     return matchesQuery && matchesTag && matchesDifficulty;
-  }), [deferredQuery, problems, range, tag]);
+  }), [problems, query, range, tag]);
 
   const hasFilters = query !== '' || tag !== 'todos' || range !== 'todos';
 
@@ -48,8 +47,8 @@ export default function ProblemFilters({ problems, tags }: Props) {
   };
 
   return (
-    <section aria-labelledby="problem-filter-title" className="space-y-5">
-      <div className="panel-elevated p-5">
+    <section aria-labelledby="problem-filter-title" className="space-y-5" data-tour="responsive-layout">
+      <div className="panel-elevated p-5" data-tour="problem-filters">
         <div className="flex items-center justify-between gap-3">
           <h2 id="problem-filter-title" className="flex items-center gap-2 text-lg font-bold">
             <Filter aria-hidden="true" size={18} />
@@ -65,11 +64,11 @@ export default function ProblemFilters({ problems, tags }: Props) {
         <div className="mt-4 grid gap-3 md:grid-cols-[1.6fr_1fr]">
           <label className="grid gap-1 text-sm font-bold">
             Buscar por titulo o id
-            <span className="relative">
-              <Search aria-hidden="true" className="text-muted pointer-events-none absolute left-3 top-1/2 -translate-y-1/2" size={18} />
+            <span className="input-icon-wrap">
+              <Search aria-hidden="true" className="input-icon" size={18} />
               <input
                 id="problem-search"
-                className="input-base pl-10"
+                className="input-base input-with-icon"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Ej: 100A o Team Queue"
@@ -88,15 +87,20 @@ export default function ProblemFilters({ problems, tags }: Props) {
           <legend className="text-sm font-bold">Rango de dificultad</legend>
           <div className="flex flex-wrap gap-2">
             {difficultyRanges.map((item) => (
-              <button
+              <label
                 key={item.id}
-                type="button"
-                className={clsx('btn btn-ghost !min-h-10', range === item.id && 'btn-primary')}
+                className="filter-choice"
                 onClick={() => setRange(item.id)}
-                aria-pressed={range === item.id}
               >
-                {item.label}
-              </button>
+                <input
+                  type="radio"
+                  name="difficulty-range"
+                  value={item.id}
+                  checked={range === item.id}
+                  onChange={() => setRange(item.id)}
+                />
+                <span>{item.label}</span>
+              </label>
             ))}
           </div>
         </fieldset>
@@ -116,6 +120,7 @@ export default function ProblemFilters({ problems, tags }: Props) {
             <a
               href={`/problemset/problem/${problem.id}`}
               className="text-app panel panel-hover grid gap-3 p-4 no-underline md:grid-cols-[1fr_auto] md:items-center"
+              data-tour="problem-card"
             >
               <div className="min-w-0">
                 <div className="text-muted flex items-center gap-2 text-xs">

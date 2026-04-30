@@ -23,6 +23,7 @@ export default function SubmitForm({ problemId = '100A' }: { problemId?: string 
   return (
     <form
       className="panel-elevated grid gap-4 p-6"
+      data-tour="auth-form"
       onSubmit={(event) => {
         event.preventDefault();
         if (isJudging) return;
@@ -53,7 +54,7 @@ export default function SubmitForm({ problemId = '100A' }: { problemId?: string 
         </div>
       </div>
 
-      <div className="grid gap-1.5">
+      <div className="grid gap-1.5" data-tour="form-errors">
         <label htmlFor="submit-code" className="text-sm font-bold">Codigo fuente</label>
         <p id="editor-help" className="text-muted text-xs">
           Pega o escribe tu solucion. Tab te lleva al siguiente campo.
@@ -96,6 +97,7 @@ export default function SubmitForm({ problemId = '100A' }: { problemId?: string 
         <p
           role="status"
           aria-live="polite"
+          data-tour="submit-result"
           className={`${statusClass} flex items-start gap-2 rounded-md border p-3 text-sm font-semibold`}
         >
           <Icon aria-hidden="true" size={18} className={outcome.kind === 'judging' ? 'mt-0.5 shrink-0 animate-spin' : 'mt-0.5 shrink-0'} />

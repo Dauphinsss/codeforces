@@ -20,6 +20,7 @@ export default function AuthForm({ mode }: Props) {
   return (
     <form
       className="panel-elevated grid gap-4 p-6"
+      data-tour="auth-form"
       noValidate
       onSubmit={(event) => {
         event.preventDefault();
@@ -33,7 +34,7 @@ export default function AuthForm({ mode }: Props) {
         </p>
       </div>
 
-      <div className="grid gap-1.5">
+      <div className="grid gap-1.5" data-tour="form-errors">
         <label htmlFor="auth-handle" className="text-sm font-bold">Handle</label>
         <input
           id="auth-handle"

@@ -15,7 +15,7 @@ export default function ProfileTabs({ user, submissions, chartLabel }: Props) {
   const accepted = submissions.filter((submission) => submission.verdict === 'AC');
 
   return (
-    <Tabs.Root defaultValue="resumen" className="grid gap-4">
+    <Tabs.Root defaultValue="resumen" className="grid gap-4" data-tour="profile-tabs">
       <Tabs.List className="panel flex flex-wrap gap-2 p-2" aria-label="Secciones del perfil">
         {[
           { value: 'resumen', label: 'Resumen', icon: Gauge },

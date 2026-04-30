@@ -25,7 +25,7 @@ export default function PreferencesPanel() {
   const nextContrast = contrast === 'high' ? 'normal' : 'high';
 
   return (
-    <div className="flex flex-wrap items-center gap-2" aria-label="Preferencias visuales">
+    <div className="flex flex-wrap items-center gap-2" aria-label="Preferencias visuales" data-tour="contrast-controls">
       <button
         className="btn btn-ghost"
         type="button"

@@ -26,7 +26,7 @@ const featured = problems.slice(0, 5);
         Resuelve problemas por dificultad, participa en contests y revisa tus envios recientes desde un solo lugar.
       </p>
       <div class="mt-5 flex flex-wrap gap-2">
-        <a class="btn btn-primary" href="/problemset"><Trophy aria-hidden="true" size={17} />Explorar problemas</a>
+        <a class="btn btn-primary" href="/problemset" data-tour="primary-action"><Trophy aria-hidden="true" size={17} />Explorar problemas</a>
         <a class="btn" href="/contests"><CalendarDays aria-hidden="true" size={17} />Ver contests</a>
         <a class="btn btn-ghost" href="/register"><UsersRound aria-hidden="true" size={17} />Crear cuenta</a>
       </div>
@@ -40,7 +40,7 @@ const featured = problems.slice(0, 5);
 
     <div class="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
       <div class="grid gap-6">
-        <section class="panel-elevated p-6" aria-labelledby="quick-start-title">
+        <section class="panel-elevated p-6" aria-labelledby="quick-start-title" data-tour="content-card">
           <h2 id="quick-start-title" class="flex items-center gap-2 text-2xl">
             <Sparkles aria-hidden="true" size={24} />
             Ruta rapida
@@ -64,7 +64,7 @@ const featured = problems.slice(0, 5);
           </ol>
         </section>
 
-        <section class="panel-elevated p-6" aria-labelledby="announcements-title">
+        <section class="panel-elevated p-6" aria-labelledby="announcements-title" data-tour="content-card">
           <div class="flex items-center justify-between gap-3">
             <h2 id="announcements-title" class="flex items-center gap-2 text-2xl">
               <Megaphone aria-hidden="true" size={24} />
