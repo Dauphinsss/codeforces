@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import RecentSubmissions from '@/components/RecentSubmissions.astro';
 import SubmitForm from '@/components/SubmitForm';
 ---
 
@@ -15,5 +16,6 @@ import SubmitForm from '@/components/SubmitForm';
       </p>
     </header>
     <SubmitForm client:load />
+    <RecentSubmissions />
   </section>
 </BaseLayout>

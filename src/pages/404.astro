@@ -1,0 +1,19 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Pagina no encontrada">
+  <section class="mx-auto grid max-w-2xl gap-5" aria-labelledby="not-found-title">
+    <header class="hero">
+      <p class="section-label">404</p>
+      <h1 id="not-found-title" class="mt-2">No encontramos esta pagina</h1>
+      <p class="mt-2" style="color: var(--color-muted-strong);">
+        Puede que el problema, perfil o contest haya cambiado de ruta. Usa los accesos rapidos para volver al flujo principal.
+      </p>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <a class="btn btn-primary" href="/problemset">Ir a problemas</a>
+        <a class="btn" href="/">Volver al inicio</a>
+      </div>
+    </header>
+  </section>
+</BaseLayout>

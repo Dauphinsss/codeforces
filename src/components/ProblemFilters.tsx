@@ -8,6 +8,15 @@ interface Props {
   tags: string[];
 }
 
+const difficultyRanges = [
+  { id: 'todos', label: 'Todas', min: 0, max: Infinity },
+  { id: '800-1199', label: '800-1199', min: 800, max: 1199 },
+  { id: '1200-1599', label: '1200-1599', min: 1200, max: 1599 },
+  { id: '1600-1899', label: '1600-1899', min: 1600, max: 1899 },
+  { id: '1900-2199', label: '1900-2199', min: 1900, max: 2199 },
+  { id: '2200+', label: '2200+', min: 2200, max: Infinity },
+];
+
 function difficultyClass(difficulty: number) {
   if (difficulty < 1200) return 'difficulty-green';
   if (difficulty < 1600) return 'difficulty-blue';
@@ -19,22 +28,23 @@ function difficultyClass(difficulty: number) {
 export default function ProblemFilters({ problems, tags }: Props) {
   const [query, setQuery] = useState('');
   const [tag, setTag] = useState('todos');
-  const [maxDifficulty, setMaxDifficulty] = useState('todos');
+  const [range, setRange] = useState('todos');
   const deferredQuery = useDeferredValue(query);
 
   const filtered = useMemo(() => problems.filter((problem) => {
+    const selectedRange = difficultyRanges.find((item) => item.id === range) ?? difficultyRanges[0];
     const matchesQuery = `${problem.id} ${problem.title}`.toLowerCase().includes(deferredQuery.toLowerCase());
     const matchesTag = tag === 'todos' || problem.tags.includes(tag);
-    const matchesDifficulty = maxDifficulty === 'todos' || problem.difficulty <= Number(maxDifficulty);
+    const matchesDifficulty = problem.difficulty >= selectedRange.min && problem.difficulty <= selectedRange.max;
     return matchesQuery && matchesTag && matchesDifficulty;
-  }), [deferredQuery, maxDifficulty, problems, tag]);
+  }), [deferredQuery, problems, range, tag]);
 
-  const hasFilters = query !== '' || tag !== 'todos' || maxDifficulty !== 'todos';
+  const hasFilters = query !== '' || tag !== 'todos' || range !== 'todos';
 
   const clearFilters = () => {
     setQuery('');
     setTag('todos');
-    setMaxDifficulty('todos');
+    setRange('todos');
   };
 
   return (
@@ -52,12 +62,13 @@ export default function ProblemFilters({ problems, tags }: Props) {
             </button>
           )}
         </div>
-        <div className="mt-4 grid gap-3 md:grid-cols-[1.6fr_1fr_1fr]">
+        <div className="mt-4 grid gap-3 md:grid-cols-[1.6fr_1fr]">
           <label className="grid gap-1 text-sm font-bold">
             Buscar por titulo o id
             <span className="relative">
               <Search aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2" size={18} style={{ color: 'var(--color-muted)' }} />
               <input
+                id="problem-search"
                 className="input-base pl-10"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
@@ -72,17 +83,26 @@ export default function ProblemFilters({ problems, tags }: Props) {
               {tags.map((item) => <option key={item} value={item}>{item}</option>)}
             </select>
           </label>
-          <label className="grid gap-1 text-sm font-bold">
-            Dificultad maxima
-            <select className="input-base" value={maxDifficulty} onChange={(event) => setMaxDifficulty(event.target.value)}>
-              <option value="todos">Todas</option>
-              <option value="1200">Hasta 1200 (facil)</option>
-              <option value="1600">Hasta 1600 (medio)</option>
-              <option value="2000">Hasta 2000 (avanzado)</option>
-              <option value="2400">Hasta 2400 (dificil)</option>
-            </select>
-          </label>
         </div>
+        <fieldset className="mt-4 grid gap-2">
+          <legend className="text-sm font-bold">Rango de dificultad</legend>
+          <div className="flex flex-wrap gap-2">
+            {difficultyRanges.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                className={clsx('btn btn-ghost !min-h-10', range === item.id && 'btn-primary')}
+                onClick={() => setRange(item.id)}
+                aria-pressed={range === item.id}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+        <p className="mt-3 text-xs" style={{ color: 'var(--color-muted)' }}>
+          Atajos opcionales: presiona / para buscar, o g y luego p para volver a Problemset.
+        </p>
       </div>
 
       <p role="status" aria-live="polite" className="text-sm font-semibold" style={{ color: 'var(--color-muted-strong)' }}>
@@ -122,8 +142,12 @@ export default function ProblemFilters({ problems, tags }: Props) {
           </li>
         ))}
         {filtered.length === 0 && (
-          <li className="panel p-8 text-center" style={{ color: 'var(--color-muted)' }}>
-            Ningun problema coincide con los filtros. Probaelos de nuevo o limpiá los filtros.
+          <li className="panel grid justify-items-center gap-3 p-8 text-center" style={{ color: 'var(--color-muted)' }}>
+            <p>Ningun problema coincide con los filtros. Proba con otro tag, otro rango de dificultad o limpia los filtros.</p>
+            <button type="button" className="btn btn-primary" onClick={clearFilters}>
+              <X aria-hidden="true" size={16} />
+              <span>Limpiar filtros</span>
+            </button>
           </li>
         )}
       </ul>

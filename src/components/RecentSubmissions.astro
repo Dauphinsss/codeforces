@@ -1,0 +1,56 @@
+---
+import { submissions } from '@/data/submissions';
+import { verdictClass, verdictLabel } from '@/utils/accessibility';
+
+const recent = submissions.slice(0, 6);
+---
+
+<section class="panel-elevated p-6" aria-labelledby="recent-submissions-title">
+  <div class="flex flex-wrap items-center justify-between gap-3">
+    <h2 id="recent-submissions-title" class="text-2xl">Envios recientes</h2>
+    <span class="chip chip-soft">{recent.length} ultimos</span>
+  </div>
+  <ul class="mt-4 grid gap-3 md:hidden">
+    {recent.map((submission) => (
+      <li class="panel p-4">
+        <div class="flex items-start justify-between gap-3">
+          <h3 class="font-mono text-sm">#{submission.id}</h3>
+          <span class={`chip ${verdictClass(submission.verdict)}`}>{verdictLabel(submission.verdict)}</span>
+        </div>
+        <dl class="mt-3 grid gap-2 text-sm">
+          <div><dt class="font-bold">Problema</dt><dd><a href={`/problemset/problem/${submission.problemId}`}>{submission.problemId}</a></dd></div>
+          <div><dt class="font-bold">Usuario</dt><dd><a href={`/profile/${submission.handle}`}>{submission.handle}</a></dd></div>
+          <div><dt class="font-bold">Lenguaje</dt><dd>{submission.language}</dd></div>
+          <div><dt class="font-bold">Fecha</dt><dd>{submission.submittedAt}</dd></div>
+        </dl>
+      </li>
+    ))}
+  </ul>
+  <div class="table-wrap mt-4 hidden md:block">
+    <table class="data-table">
+      <caption class="sr-only">Historial de envios recientes con problema, usuario, veredicto y lenguaje</caption>
+      <thead>
+        <tr>
+          <th scope="col">Envio</th>
+          <th scope="col">Problema</th>
+          <th scope="col">Usuario</th>
+          <th scope="col">Veredicto</th>
+          <th scope="col">Lenguaje</th>
+          <th scope="col">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        {recent.map((submission) => (
+          <tr>
+            <td class="font-mono text-sm">#{submission.id}</td>
+            <td><a class="font-semibold" href={`/problemset/problem/${submission.problemId}`}>{submission.problemId}</a></td>
+            <td><a href={`/profile/${submission.handle}`}>{submission.handle}</a></td>
+            <td><span class={`chip ${verdictClass(submission.verdict)}`}>{verdictLabel(submission.verdict)}</span></td>
+            <td>{submission.language}</td>
+            <td class="text-sm" style="color: var(--color-muted);">{submission.submittedAt}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
