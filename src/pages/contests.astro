@@ -15,7 +15,7 @@ const past = contests.filter((c) => c.phase === 'pasado');
     <header class="hero">
       <p class="section-label">Calendario</p>
       <h1 id="contests-page-title" class="mt-2">Contests</h1>
-      <p class="mt-2 max-w-3xl" style="color: var(--color-muted-strong);">
+      <p class="text-muted-strong mt-2 max-w-3xl">
         Incluye rondas oficiales y <GlossaryTooltip client:load term="gym" description="Espacio de entrenamiento con contests no necesariamente oficiales, usado por equipos y grupos de practica." />.
       </p>
     </header>
@@ -35,8 +35,8 @@ const past = contests.filter((c) => c.phase === 'pasado');
               <p class="section-label">{contest.format}</p>
               <h3 class="mt-1 text-lg leading-tight">{contest.name}</h3>
               <dl class="mt-3 grid gap-1 text-sm">
-                <div class="flex justify-between gap-2"><dt style="color: var(--color-muted);">Inicio</dt><dd class="font-semibold">{contest.startTime}</dd></div>
-                <div class="flex justify-between gap-2"><dt style="color: var(--color-muted);">Duracion</dt><dd class="font-semibold">{contest.duration}</dd></div>
+                <div class="flex justify-between gap-2"><dt class="text-muted">Inicio</dt><dd class="font-semibold">{contest.startTime}</dd></div>
+                <div class="flex justify-between gap-2"><dt class="text-muted">Duracion</dt><dd class="font-semibold">{contest.duration}</dd></div>
               </dl>
               <a class="btn btn-primary mt-4 w-full" href="/contests" aria-label={`Inscribirme en ${contest.name}`}>
                 <Trophy aria-hidden="true" size={17} />
@@ -87,7 +87,7 @@ const past = contests.filter((c) => c.phase === 'pasado');
                 <tr>
                   <td><a href="/contests" class="font-semibold">{contest.name}</a></td>
                   <td><span class="chip chip-soft">{contest.format}</span></td>
-                  <td class="text-sm" style="color: var(--color-muted);">{contest.startTime}</td>
+                  <td class="text-muted text-sm">{contest.startTime}</td>
                   <td class="text-sm">{contest.duration}</td>
                   <td class="text-sm font-semibold">{contest.participants.toLocaleString('es')}</td>
                 </tr>

@@ -50,7 +50,7 @@ export default function PreferencesPanel() {
         <Contrast aria-hidden="true" size={18} />
         <span>{contrast === 'high' ? 'Contraste normal' : 'Alto contraste'}</span>
       </button>
-      <label className="inline-flex min-h-11 items-center gap-2 rounded border px-3" style={{ borderColor: 'var(--color-border)' }}>
+      <label className="border-app inline-flex min-h-11 items-center gap-2 rounded border px-3">
         <Type aria-hidden="true" size={18} />
         <span className="font-bold">Texto</span>
         <select

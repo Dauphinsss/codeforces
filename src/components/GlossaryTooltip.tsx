@@ -26,12 +26,11 @@ export default function GlossaryTooltip({ term, description }: Props) {
         <Tooltip.Portal>
           <Tooltip.Content
             id={descId}
-            className="max-w-xs rounded border p-3 text-sm shadow-lg"
-            style={{ background: 'var(--color-surface)', borderColor: 'var(--color-border)', color: 'var(--color-text)' }}
+            className="tooltip-panel max-w-xs rounded border p-3 text-sm shadow-lg"
             sideOffset={6}
           >
             {description}
-            <Tooltip.Arrow style={{ fill: 'var(--color-surface)' }} />
+            <Tooltip.Arrow className="tooltip-arrow" />
           </Tooltip.Content>
         </Tooltip.Portal>
       </Tooltip.Root>

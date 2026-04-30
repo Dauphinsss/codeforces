@@ -66,7 +66,7 @@ export default function ProblemFilters({ problems, tags }: Props) {
           <label className="grid gap-1 text-sm font-bold">
             Buscar por titulo o id
             <span className="relative">
-              <Search aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2" size={18} style={{ color: 'var(--color-muted)' }} />
+              <Search aria-hidden="true" className="text-muted pointer-events-none absolute left-3 top-1/2 -translate-y-1/2" size={18} />
               <input
                 id="problem-search"
                 className="input-base pl-10"
@@ -100,12 +100,12 @@ export default function ProblemFilters({ problems, tags }: Props) {
             ))}
           </div>
         </fieldset>
-        <p className="mt-3 text-xs" style={{ color: 'var(--color-muted)' }}>
+        <p className="text-muted mt-3 text-xs">
           Atajos opcionales: presiona / para buscar, o g y luego p para volver a Problemset.
         </p>
       </div>
 
-      <p role="status" aria-live="polite" className="text-sm font-semibold" style={{ color: 'var(--color-muted-strong)' }}>
+      <p role="status" aria-live="polite" className="text-muted-strong text-sm font-semibold">
         {filtered.length} problemas encontrados
         {hasFilters && <span> · filtros activos</span>}
       </p>
@@ -115,11 +115,10 @@ export default function ProblemFilters({ problems, tags }: Props) {
           <li key={problem.id}>
             <a
               href={`/problemset/problem/${problem.id}`}
-              className="panel panel-hover grid gap-3 p-4 no-underline md:grid-cols-[1fr_auto] md:items-center"
-              style={{ color: 'var(--color-text)' }}
+              className="text-app panel panel-hover grid gap-3 p-4 no-underline md:grid-cols-[1fr_auto] md:items-center"
             >
               <div className="min-w-0">
-                <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--color-muted)' }}>
+                <div className="text-muted flex items-center gap-2 text-xs">
                   <span className="font-mono font-bold">#{problem.id}</span>
                   <span aria-hidden="true">·</span>
                   <span>{problem.solvedCount.toLocaleString('es')} resueltos</span>
@@ -134,7 +133,7 @@ export default function ProblemFilters({ problems, tags }: Props) {
                   <span aria-hidden="true" className="opacity-80">●</span>
                   {problem.difficulty}
                 </span>
-                <span className="text-sm font-semibold" style={{ color: 'var(--color-primary)' }}>
+                <span className="text-primary text-sm font-semibold">
                   Resolver →
                 </span>
               </div>
@@ -142,7 +141,7 @@ export default function ProblemFilters({ problems, tags }: Props) {
           </li>
         ))}
         {filtered.length === 0 && (
-          <li className="panel grid justify-items-center gap-3 p-8 text-center" style={{ color: 'var(--color-muted)' }}>
+          <li className="text-muted panel grid justify-items-center gap-3 p-8 text-center">
             <p>Ningun problema coincide con los filtros. Proba con otro tag, otro rango de dificultad o limpia los filtros.</p>
             <button type="button" className="btn btn-primary" onClick={clearFilters}>
               <X aria-hidden="true" size={16} />

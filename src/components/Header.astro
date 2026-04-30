@@ -15,15 +15,13 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 ---
 
 <header
-  class="sticky top-0 z-30 border-b backdrop-blur"
-  style="border-color: var(--color-border); background: color-mix(in srgb, var(--color-surface) 88%, transparent);"
+  class="site-header sticky top-0 z-30 border-b backdrop-blur"
 >
-  <div class="flex w-full items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
-    <div class="flex min-w-0 items-center gap-3">
+  <div class="flex min-h-[var(--header-height)] w-full items-center justify-between gap-2 px-3 py-2 sm:gap-3 sm:px-6 lg:px-8">
+    <div class="flex min-w-0 items-center gap-2 sm:gap-3">
       <a
         href="/"
-        class="flex min-h-11 items-center gap-2 rounded-md px-1 no-underline"
-        style="color: var(--color-text-strong);"
+        class="brand-link flex min-h-11 items-center gap-2 rounded-md px-1 no-underline"
         aria-label="Accessibleforces, ir al inicio"
       >
         <span class="brand-logo-wrap" aria-hidden="true">
@@ -60,9 +58,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
               class="relative inline-flex min-h-11 items-center gap-2 rounded-md px-3 py-2 font-semibold no-underline transition-colors"
               href={item.href}
               aria-current={active ? 'page' : undefined}
-              style={active
-                ? 'background: color-mix(in srgb, var(--color-primary) 12%, transparent); color: var(--color-primary);'
-                : 'color: var(--color-text);'}
+              class:list={[active ? 'nav-link-active' : 'text-app']}
             >
               <Icon aria-hidden="true" size={17} />
               {item.label}
@@ -77,8 +73,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
         <details class="relative">
           <summary class="btn btn-ghost list-none cursor-pointer"><Settings aria-hidden="true" size={17} />Preferencias</summary>
           <div
-            class="absolute right-0 mt-2 w-[min(92vw,24rem)] rounded-md border p-3 shadow-lg"
-            style="border-color: var(--color-border); background: var(--color-surface);"
+            class="surface-app border-app absolute right-0 mt-2 w-[min(92vw,24rem)] rounded-md border p-3 shadow-lg"
           >
             <PreferencesPanel client:load />
           </div>
@@ -86,17 +81,16 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       </div>
     </div>
 
-    <details class="relative lg:hidden">
+    <details class="mobile-menu-root lg:hidden">
       <summary class="btn btn-ghost list-none cursor-pointer" aria-label="Abrir menu de navegacion">
         <span aria-hidden="true" class="grid gap-1">
-          <span class="menu-line menu-line-top block h-0.5 w-5 rounded" style="background: currentColor;"></span>
-          <span class="menu-line menu-line-middle block h-0.5 w-5 rounded" style="background: currentColor;"></span>
-          <span class="menu-line menu-line-bottom block h-0.5 w-5 rounded" style="background: currentColor;"></span>
+          <span class="menu-line menu-line-top block h-0.5 w-5 rounded"></span>
+          <span class="menu-line menu-line-middle block h-0.5 w-5 rounded"></span>
+          <span class="menu-line menu-line-bottom block h-0.5 w-5 rounded"></span>
         </span>
       </summary>
       <div
-        class="mobile-menu-panel fixed inset-x-0 bottom-0 top-[4.25rem] grid content-start gap-4 overflow-y-auto border-y p-4 shadow-lg lg:hidden"
-        style="border-color: var(--color-border); background: var(--color-surface);"
+        class="mobile-menu-panel content-start gap-4 overflow-y-auto border-y p-4 shadow-lg lg:hidden"
       >
         <nav aria-label="Navegacion principal movil" class="container grid gap-2">
           {nav.map((item) => {
@@ -107,9 +101,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
                 class="inline-flex min-h-11 w-full items-center gap-2 rounded-md px-3 py-3 font-semibold no-underline"
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
-                style={active
-                  ? 'background: color-mix(in srgb, var(--color-primary) 12%, transparent); color: var(--color-primary);'
-                  : 'color: var(--color-text);'}
+                class:list={[active ? 'nav-link-active' : 'text-app']}
               >
                 <Icon aria-hidden="true" size={17} />
                 {item.label}
@@ -121,7 +113,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
           <a class="btn btn-ghost justify-start" href="/enter"><LogIn aria-hidden="true" size={17} />Entrar</a>
           <a class="btn btn-primary justify-start" href="/register"><UserRoundPlus aria-hidden="true" size={17} />Registrarse</a>
         </div>
-        <div class="container border-t pt-3" style="border-color: var(--color-border);">
+        <div class="border-app container border-t pt-3">
           <PreferencesPanel client:load />
         </div>
       </div>

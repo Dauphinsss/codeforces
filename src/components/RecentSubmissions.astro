@@ -51,7 +51,7 @@ const recent = submissions.slice(0, 6);
             <td><a href={`/profile/${submission.handle}`}>{submission.handle}</a></td>
             <td><span class={`chip ${verdictClass(submission.verdict)}`}>{verdictLabel(submission.verdict)}</span></td>
             <td>{submission.language}</td>
-            <td class="text-sm" style="color: var(--color-muted);">{submission.submittedAt}</td>
+            <td class="text-muted text-sm">{submission.submittedAt}</td>
           </tr>
         ))}
       </tbody>

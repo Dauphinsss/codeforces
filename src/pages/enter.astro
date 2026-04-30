@@ -15,12 +15,12 @@ import { LogIn } from 'lucide-react';
         <LogIn aria-hidden="true" size={32} />
         Entrar a Accessibleforces
       </h1>
-      <p class="mt-2" style="color: var(--color-muted-strong);">
+      <p class="text-muted-strong mt-2">
         Usa tu <GlossaryTooltip client:load term="handle" description="Nombre publico que identifica tus envios, perfil y participacion en contests." /> para acceder a la demo.
       </p>
     </header>
     <AuthForm client:load mode="login" />
-    <p class="text-center text-sm" style="color: var(--color-muted);">
+    <p class="text-muted text-center text-sm">
       ¿No tenes cuenta? <a href="/register" class="font-semibold">Registrate</a>
     </p>
   </section>

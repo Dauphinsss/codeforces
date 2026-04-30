@@ -38,10 +38,10 @@ export default function RatingChart({ history, label }: Props) {
   return (
     <figure className="panel-elevated p-5">
       <figcaption className="mb-3 flex items-baseline justify-between gap-3">
-        <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--color-muted)' }}>
+        <span className="text-muted text-xs font-bold uppercase tracking-wider">
           Historial de rating
         </span>
-        <span className="text-sm" style={{ color: 'var(--color-muted-strong)' }}>{label}</span>
+        <span className="text-muted-strong text-sm">{label}</span>
       </figcaption>
       <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={label} className="h-auto w-full">
         <defs>

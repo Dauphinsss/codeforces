@@ -46,7 +46,7 @@ export default function ProfileTabs({ user, submissions, chartLabel }: Props) {
             <span className="chip chip-soft">{submissions.length} envios</span>
           </div>
           {submissions.length === 0 ? (
-            <p className="mt-4 text-sm" style={{ color: 'var(--color-muted)' }}>Sin envios registrados todavia para {user.handle}.</p>
+            <p className="text-muted mt-4 text-sm">Sin envios registrados todavia para {user.handle}.</p>
           ) : (
             <ul className="mt-4 grid gap-3">
               {submissions.map((submission) => (
@@ -75,13 +75,13 @@ export default function ProfileTabs({ user, submissions, chartLabel }: Props) {
         <section className="panel-elevated p-6" aria-labelledby="solved-title">
           <h2 id="solved-title" className="text-2xl">Problemas resueltos</h2>
           {accepted.length === 0 ? (
-            <p className="mt-4 text-sm" style={{ color: 'var(--color-muted)' }}>Aun no hay aceptados recientes en el historial visible.</p>
+            <p className="text-muted mt-4 text-sm">Aun no hay aceptados recientes en el historial visible.</p>
           ) : (
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {accepted.map((submission) => (
                 <li key={submission.id} className="panel p-4">
                   <a className="font-bold" href={`/problemset/problem/${submission.problemId}`}>{submission.problemId}</a>
-                  <p className="mt-1 text-sm" style={{ color: 'var(--color-muted)' }}>{submission.language} · {submission.time}</p>
+                  <p className="text-muted mt-1 text-sm">{submission.language} · {submission.time}</p>
                 </li>
               ))}
             </ul>

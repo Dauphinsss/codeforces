@@ -45,17 +45,15 @@ const { problem } = Astro.props;
         {problem.examples.map((example, idx) => (
           <div class="grid gap-3 md:grid-cols-2">
             <section aria-label={`Entrada del ejemplo ${idx + 1}`}>
-              <p class="text-xs font-bold uppercase tracking-wider" style="color: var(--color-muted);">Entrada</p>
+              <p class="text-muted text-xs font-bold uppercase tracking-wider">Entrada</p>
               <pre
-                class="mt-1 whitespace-pre-wrap break-words rounded-md border p-3 font-mono text-sm md:whitespace-pre"
-                style="border-color: var(--color-border); background: var(--color-bg-muted);"
+                class="code-block mt-1 whitespace-pre-wrap break-words rounded-md border p-3 font-mono text-sm md:whitespace-pre"
               ><code>{example.input}</code></pre>
             </section>
             <section aria-label={`Salida del ejemplo ${idx + 1}`}>
-              <p class="text-xs font-bold uppercase tracking-wider" style="color: var(--color-muted);">Salida</p>
+              <p class="text-muted text-xs font-bold uppercase tracking-wider">Salida</p>
               <pre
-                class="mt-1 whitespace-pre-wrap break-words rounded-md border p-3 font-mono text-sm md:whitespace-pre"
-                style="border-color: var(--color-border); background: var(--color-bg-muted);"
+                class="code-block mt-1 whitespace-pre-wrap break-words rounded-md border p-3 font-mono text-sm md:whitespace-pre"
               ><code>{example.output}</code></pre>
             </section>
           </div>

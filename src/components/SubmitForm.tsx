@@ -17,13 +17,8 @@ export default function SubmitForm({ problemId = '100A' }: { problemId?: string 
   const timerRef = useRef<number | null>(null);
   const isJudging = outcome?.kind === 'judging';
 
-  const styleByKind = {
-    judging: { color: 'var(--color-muted-strong)', background: 'var(--color-surface-strong)', borderColor: 'var(--color-border)' },
-    success: { color: 'var(--color-success)', background: 'var(--color-success-soft)', borderColor: 'color-mix(in srgb, var(--color-success) 30%, transparent)' },
-    error: { color: 'var(--color-danger)', background: 'var(--color-danger-soft)', borderColor: 'color-mix(in srgb, var(--color-danger) 30%, transparent)' },
-  } as const;
-
   const Icon = outcome?.kind === 'success' ? CheckCircle2 : outcome?.kind === 'error' ? AlertTriangle : Loader2;
+  const statusClass = outcome?.kind === 'success' ? 'status-success' : outcome?.kind === 'error' ? 'status-error' : 'status-message';
 
   return (
     <form
@@ -60,19 +55,18 @@ export default function SubmitForm({ problemId = '100A' }: { problemId?: string 
 
       <div className="grid gap-1.5">
         <label htmlFor="submit-code" className="text-sm font-bold">Codigo fuente</label>
-        <p id="editor-help" className="text-xs" style={{ color: 'var(--color-muted)' }}>
+        <p id="editor-help" className="text-muted text-xs">
           Pega o escribe tu solucion. Tab te lleva al siguiente campo.
         </p>
         <textarea
           id="submit-code"
-          className="min-h-80 w-full rounded-md border p-3 font-mono text-sm leading-relaxed"
-          style={{ borderColor: 'var(--color-border-strong)', background: 'var(--color-bg-muted)', color: 'var(--color-text)' }}
+          className="code-editor min-h-80 w-full rounded-md border p-3 font-mono text-sm leading-relaxed"
           value={code}
           onChange={(event) => setCode(event.target.value)}
           spellCheck={false}
           aria-describedby="editor-help"
         />
-        <p className="text-right text-xs font-mono" style={{ color: 'var(--color-muted)' }}>
+        <p className="text-muted text-right text-xs font-mono">
           {code.split('\n').length} lineas · {code.length} caracteres
         </p>
       </div>
@@ -102,8 +96,7 @@ export default function SubmitForm({ problemId = '100A' }: { problemId?: string 
         <p
           role="status"
           aria-live="polite"
-          className="flex items-start gap-2 rounded-md border p-3 text-sm font-semibold"
-          style={styleByKind[outcome.kind]}
+          className={`${statusClass} flex items-start gap-2 rounded-md border p-3 text-sm font-semibold`}
         >
           <Icon aria-hidden="true" size={18} className={outcome.kind === 'judging' ? 'mt-0.5 shrink-0 animate-spin' : 'mt-0.5 shrink-0'} />
           <span>{outcome.message}</span>
