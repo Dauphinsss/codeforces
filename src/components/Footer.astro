@@ -1,0 +1,35 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-12 border-t" style="border-color: var(--color-border); background: var(--color-surface);">
+  <div class="container grid gap-6 py-8 md:grid-cols-[2fr_1fr_1fr]">
+    <div>
+      <p class="text-base font-bold" style="color: var(--color-text-strong);">Accessibleforces</p>
+      <p class="mt-1 text-sm" style="color: var(--color-muted);">
+        Plataforma demo para entrenar problemas, contests y perfiles de programacion competitiva.
+      </p>
+    </div>
+    <nav aria-label="Navegacion del sitio">
+      <p class="text-xs font-bold uppercase tracking-wider" style="color: var(--color-muted);">Sitio</p>
+      <ul class="mt-2 grid gap-1">
+        <li><a class="inline-flex min-h-11 items-center" href="/problemset">Problemas</a></li>
+        <li><a class="inline-flex min-h-11 items-center" href="/contests">Contests</a></li>
+        <li><a class="inline-flex min-h-11 items-center" href="/submit">Enviar solucion</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Cuenta">
+      <p class="text-xs font-bold uppercase tracking-wider" style="color: var(--color-muted);">Cuenta</p>
+      <ul class="mt-2 grid gap-1">
+        <li><a class="inline-flex min-h-11 items-center" href="/enter">Entrar</a></li>
+        <li><a class="inline-flex min-h-11 items-center" href="/register">Registrarse</a></li>
+        <li><a class="inline-flex min-h-11 items-center" href="/profile/accessiblecoder">Perfil demo</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="border-t" style="border-color: var(--color-border);">
+    <p class="container py-4 text-xs" style="color: var(--color-muted);">
+      © {year} Accessibleforces · Demo academico, sin afiliacion con Codeforces.
+    </p>
+  </div>
+</footer>

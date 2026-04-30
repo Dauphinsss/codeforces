@@ -1,0 +1,108 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import RatingChart from '@/components/RatingChart';
+import GlossaryTooltip from '@/components/GlossaryTooltip';
+import { users } from '@/data/users';
+import { submissions } from '@/data/submissions';
+import { verdictLabel, verdictClass, rankClass } from '@/utils/accessibility';
+
+export function getStaticPaths() {
+  return users.map((user) => ({ params: { handle: user.handle }, props: { user } }));
+}
+
+const { user } = Astro.props;
+const userSubmissions = submissions.filter((submission) => submission.handle === user.handle).slice(0, 5);
+const chartLabel = `Rating actual ${user.rating}, maximo ${user.maxRating}.`;
+const initials = user.handle.slice(0, 2).toUpperCase();
+---
+
+<BaseLayout title={`Perfil de ${user.handle}`}>
+  <section class="grid gap-6" aria-labelledby="profile-title">
+    <header class="hero">
+      <div class="grid items-center gap-5 md:grid-cols-[auto_1fr_auto]">
+        <div
+          aria-hidden="true"
+          class="grid h-24 w-24 place-items-center rounded-full text-3xl font-black"
+          style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: var(--color-primary-text); box-shadow: var(--shadow-lg); border: 4px solid var(--color-surface);"
+        >
+          {initials}
+        </div>
+        <div class="min-w-0">
+          <p class="section-label">Perfil competitivo</p>
+          <h1 id="profile-title" class="mt-1 break-words">{user.handle}</h1>
+          <p class={`mt-1 text-lg font-bold ${rankClass(user.rank)}`}>{user.rank}</p>
+          <p class="mt-2 text-sm" style="color: var(--color-muted-strong);">
+            <GlossaryTooltip client:load term="rating" description="Puntaje competitivo que resume rendimiento reciente en contests oficiales." />
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <a class="btn btn-primary" href="/submit">Enviar solucion</a>
+          <a class="btn" href="/contests">Ver contests</a>
+        </div>
+      </div>
+    </header>
+
+    <dl class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="stat-card"><dt>Rating actual</dt><dd>{user.rating}</dd></div>
+      <div class="stat-card"><dt>Max rating</dt><dd>{user.maxRating}</dd></div>
+      <div class="stat-card"><dt>Resueltos</dt><dd>{user.solved.toLocaleString('es')}</dd></div>
+      <div class="stat-card"><dt>Contribucion</dt><dd>{user.contribution > 0 ? `+${user.contribution}` : user.contribution}</dd></div>
+    </dl>
+
+    <RatingChart client:visible history={user.ratingHistory} label={chartLabel} />
+
+    <section class="panel-elevated p-6" aria-labelledby="history-title">
+      <div class="flex items-center justify-between">
+        <h2 id="history-title" class="text-2xl">Historial reciente</h2>
+        <span class="chip chip-soft">{userSubmissions.length} envios</span>
+      </div>
+      {userSubmissions.length === 0 ? (
+        <p class="mt-4 text-sm" style="color: var(--color-muted);">
+          Sin envios registrados todavia para {user.handle}.
+        </p>
+      ) : (
+        <>
+        <ul class="mt-4 grid gap-3 md:hidden">
+          {userSubmissions.map((submission) => (
+            <li class="panel p-4">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-mono text-sm">#{submission.id}</h3>
+                <span class={`chip ${verdictClass(submission.verdict)}`}>{verdictLabel(submission.verdict)}</span>
+              </div>
+              <dl class="mt-3 grid gap-2 text-sm">
+                <div><dt class="font-bold">Problema</dt><dd><a href={`/problemset/problem/${submission.problemId}`}>{submission.problemId}</a></dd></div>
+                <div><dt class="font-bold">Lenguaje</dt><dd>{submission.language}</dd></div>
+                <div><dt class="font-bold">Tiempo</dt><dd>{submission.time}</dd></div>
+              </dl>
+            </li>
+          ))}
+        </ul>
+        <div class="table-wrap mt-4 hidden md:block">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th scope="col">Envio</th>
+                <th scope="col">Problema</th>
+                <th scope="col">Veredicto</th>
+                <th scope="col">Lenguaje</th>
+                <th scope="col">Tiempo</th>
+              </tr>
+            </thead>
+            <tbody>
+              {userSubmissions.map((submission) => (
+                <tr>
+                  <td class="font-mono text-sm">#{submission.id}</td>
+                  <td><a href={`/problemset/problem/${submission.problemId}`} class="font-semibold">{submission.problemId}</a></td>
+                  <td><span class={`chip ${verdictClass(submission.verdict)}`}>{verdictLabel(submission.verdict)}</span></td>
+                  <td>{submission.language}</td>
+                  <td class="text-sm" style="color: var(--color-muted);">{submission.time}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        </>
+      )}
+    </section>
+  </section>
+</BaseLayout>

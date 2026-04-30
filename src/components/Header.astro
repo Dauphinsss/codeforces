@@ -1,0 +1,114 @@
+---
+import PreferencesPanel from '@/components/PreferencesPanel';
+
+const nav = [
+  { href: '/', label: 'Inicio' },
+  { href: '/problemset', label: 'Problemas' },
+  { href: '/contests', label: 'Contests' },
+  { href: '/submit', label: 'Enviar' },
+  { href: '/profile/accessiblecoder', label: 'Perfil' },
+];
+
+const path = Astro.url.pathname;
+const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<header
+  class="sticky top-0 z-30 border-b backdrop-blur"
+  style="border-color: var(--color-border); background: color-mix(in srgb, var(--color-surface) 88%, transparent);"
+>
+  <div class="container flex items-center justify-between gap-3 py-3">
+    <div class="flex min-w-0 items-center gap-3">
+      <a
+        href="/"
+        class="flex min-h-11 items-center gap-2 rounded-md px-1 no-underline"
+        style="color: var(--color-text-strong);"
+        aria-label="Accessibleforces, ir al inicio"
+      >
+        <span
+          aria-hidden="true"
+          class="grid h-9 w-9 place-items-center rounded-md font-black"
+          style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: var(--color-primary-text); box-shadow: var(--shadow-sm);"
+        >
+          A
+        </span>
+        <span class="brand-title text-xl font-black tracking-tight">Accessibleforces</span>
+      </a>
+      <span class="hidden chip chip-soft sm:inline-flex">Practice arena</span>
+    </div>
+
+    <div class="hidden lg:flex lg:items-center lg:justify-between lg:gap-4">
+      <nav aria-label="Navegacion principal" class="flex flex-wrap items-center gap-1">
+        {nav.map((item) => {
+          const active = isActive(item.href);
+          return (
+            <a
+              class="relative inline-flex min-h-11 items-center rounded-md px-3 py-2 font-semibold no-underline transition-colors"
+              href={item.href}
+              aria-current={active ? 'page' : undefined}
+              style={active
+                ? 'background: color-mix(in srgb, var(--color-primary) 12%, transparent); color: var(--color-primary);'
+                : 'color: var(--color-text);'}
+            >
+              {item.label}
+            </a>
+          );
+        })}
+      </nav>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <a class="btn btn-ghost" href="/enter">Entrar</a>
+        <a class="btn btn-primary" href="/register">Registrarse</a>
+        <details class="relative">
+          <summary class="btn btn-ghost list-none cursor-pointer">Preferencias</summary>
+          <div
+            class="absolute right-0 mt-2 w-[min(92vw,24rem)] rounded-md border p-3 shadow-lg"
+            style="border-color: var(--color-border); background: var(--color-surface);"
+          >
+            <PreferencesPanel client:load />
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <details class="relative lg:hidden">
+      <summary class="btn btn-ghost list-none cursor-pointer" aria-label="Abrir menu de navegacion">
+        <span aria-hidden="true" class="grid gap-1">
+          <span class="block h-0.5 w-5 rounded" style="background: currentColor;"></span>
+          <span class="block h-0.5 w-5 rounded" style="background: currentColor;"></span>
+          <span class="block h-0.5 w-5 rounded" style="background: currentColor;"></span>
+        </span>
+        <span>Menu</span>
+      </summary>
+      <div
+        class="absolute right-0 mt-2 grid w-[min(92vw,24rem)] gap-4 rounded-md border p-4 shadow-lg"
+        style="border-color: var(--color-border); background: var(--color-surface);"
+      >
+        <nav aria-label="Navegacion principal movil" class="grid gap-1">
+          {nav.map((item) => {
+            const active = isActive(item.href);
+            return (
+              <a
+                class="inline-flex min-h-11 items-center rounded-md px-3 py-2 font-semibold no-underline"
+                href={item.href}
+                aria-current={active ? 'page' : undefined}
+                style={active
+                  ? 'background: color-mix(in srgb, var(--color-primary) 12%, transparent); color: var(--color-primary);'
+                  : 'color: var(--color-text);'}
+              >
+                {item.label}
+              </a>
+            );
+          })}
+        </nav>
+        <div class="grid gap-2">
+          <a class="btn btn-ghost justify-start" href="/enter">Entrar</a>
+          <a class="btn btn-primary justify-start" href="/register">Registrarse</a>
+        </div>
+        <div class="border-t pt-3" style="border-color: var(--color-border);">
+          <PreferencesPanel client:load />
+        </div>
+      </div>
+    </details>
+  </div>
+</header>

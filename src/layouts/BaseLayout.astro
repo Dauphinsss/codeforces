@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import SkipLink from '@/components/SkipLink.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Clon accesible de Codeforces con navegacion semantica, alto contraste y controles ergonomicos.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title} | Accessibleforces</title>
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const theme = localStorage.getItem('theme') || 'light';
+        const contrast = localStorage.getItem('contrast') || 'normal';
+        const fontSize = localStorage.getItem('fontSize') || 'normal';
+        root.dataset.theme = theme;
+        root.dataset.contrast = contrast;
+        root.dataset.fontSize = fontSize;
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <SkipLink />
+      <Header />
+      <main id="main-content" class="container soft-enter py-6" tabindex="-1">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

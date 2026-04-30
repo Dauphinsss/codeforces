@@ -1,0 +1,21 @@
+---
+import { difficultyClass, difficultyLabel } from '@/utils/accessibility';
+
+interface Props {
+  difficulty: number;
+  showLabel?: boolean;
+}
+
+const { difficulty, showLabel = false } = Astro.props;
+const cls = difficultyClass(difficulty);
+const label = difficultyLabel(difficulty);
+---
+
+<span
+  class={`chip ${cls}`}
+  aria-label={`Dificultad ${difficulty}, nivel ${label.toLowerCase()}`}
+>
+  <span aria-hidden="true" class="font-mono text-xs opacity-80">●</span>
+  <span>{difficulty}</span>
+  {showLabel && <span class="text-xs font-semibold opacity-90">{label}</span>}
+</span>

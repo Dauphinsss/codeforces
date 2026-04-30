@@ -1,0 +1,17 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SubmitForm from '@/components/SubmitForm';
+---
+
+<BaseLayout title="Enviar">
+  <section class="mx-auto grid max-w-4xl gap-5" aria-labelledby="submit-page-title">
+    <header class="hero">
+      <p class="section-label">Envio</p>
+      <h1 id="submit-page-title" class="mt-2">Enviar solucion</h1>
+      <p class="mt-2" style="color: var(--color-muted-strong);">
+        Selecciona el problema, elige el lenguaje y envia tu codigo al juez de practica.
+      </p>
+    </header>
+    <SubmitForm client:load />
+  </section>
+</BaseLayout>

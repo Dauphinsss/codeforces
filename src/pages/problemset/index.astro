@@ -1,0 +1,18 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProblemFilters from '@/components/ProblemFilters';
+import { problems, tags } from '@/data/problems';
+---
+
+<BaseLayout title="Problemset">
+  <div class="grid gap-6">
+    <section class="hero" aria-labelledby="problemset-title">
+      <p class="section-label">Problemset</p>
+      <h1 id="problemset-title" class="mt-2">Lista de problemas</h1>
+      <p class="mt-2 max-w-3xl" style="color: var(--color-muted-strong);">
+        Encuentra ejercicios por titulo, tag o dificultad y abre el enunciado para empezar a resolver.
+      </p>
+    </section>
+    <ProblemFilters client:load problems={problems} tags={tags} />
+  </div>
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AuthForm from '@/components/AuthForm';
+---
+
+<BaseLayout title="Registro">
+  <section class="mx-auto grid max-w-2xl gap-5" aria-labelledby="register-title">
+    <header class="hero">
+      <p class="section-label">Nueva cuenta</p>
+      <h1 id="register-title" class="mt-2">Crear cuenta</h1>
+      <p class="mt-2" style="color: var(--color-muted-strong);">
+        Todos los campos tienen label visible, ayuda previa y validacion inline orientada al usuario.
+      </p>
+    </header>
+    <AuthForm client:load mode="register" />
+    <p class="text-center text-sm" style="color: var(--color-muted);">
+      ¿Ya tenes cuenta? <a href="/enter" class="font-semibold">Entrar</a>
+    </p>
+  </section>
+</BaseLayout>

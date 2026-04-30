@@ -1,0 +1,89 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import GlossaryTooltip from '@/components/GlossaryTooltip';
+import { contests } from '@/data/contests';
+
+const upcoming = contests.filter((c) => c.phase === 'proximo');
+const past = contests.filter((c) => c.phase === 'pasado');
+---
+
+<BaseLayout title="Contests">
+  <section class="grid gap-6" aria-labelledby="contests-page-title">
+    <header class="hero">
+      <p class="section-label">Calendario</p>
+      <h1 id="contests-page-title" class="mt-2">Contests</h1>
+      <p class="mt-2 max-w-3xl" style="color: var(--color-muted-strong);">
+        Incluye rondas oficiales y <GlossaryTooltip client:load term="gym" description="Espacio de entrenamiento con contests no necesariamente oficiales, usado por equipos y grupos de practica." />.
+      </p>
+    </header>
+
+    {upcoming.length > 0 && (
+      <section aria-labelledby="upcoming-title" class="grid gap-3">
+        <div class="flex items-center justify-between">
+          <h2 id="upcoming-title" class="text-2xl">Proximos</h2>
+          <span class="chip chip-success">{upcoming.length} programados</span>
+        </div>
+        <ul class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {upcoming.map((contest) => (
+            <li class="panel panel-hover p-5">
+              <p class="section-label">{contest.format}</p>
+              <h3 class="mt-1 text-lg leading-tight">{contest.name}</h3>
+              <dl class="mt-3 grid gap-1 text-sm">
+                <div class="flex justify-between gap-2"><dt style="color: var(--color-muted);">Inicio</dt><dd class="font-semibold">{contest.startTime}</dd></div>
+                <div class="flex justify-between gap-2"><dt style="color: var(--color-muted);">Duracion</dt><dd class="font-semibold">{contest.duration}</dd></div>
+              </dl>
+              <a class="btn btn-primary mt-4 w-full" href="/contests" aria-label={`Inscribirme en ${contest.name}`}>Inscribirme</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section aria-labelledby="past-title" class="grid gap-3">
+      <div class="flex items-center justify-between">
+        <h2 id="past-title" class="text-2xl">Pasados</h2>
+        <span class="chip">{past.length} contests</span>
+      </div>
+      <ul class="grid gap-3 md:hidden">
+        {past.map((contest) => (
+          <li class="panel p-4">
+            <h3 class="text-base"><a href="/contests" class="font-semibold">{contest.name}</a></h3>
+            <dl class="mt-3 grid gap-2 text-sm">
+              <div><dt class="font-bold">Formato</dt><dd><span class="chip chip-soft">{contest.format}</span></dd></div>
+              <div><dt class="font-bold">Inicio</dt><dd>{contest.startTime}</dd></div>
+              <div><dt class="font-bold">Duracion</dt><dd>{contest.duration}</dd></div>
+              <div><dt class="font-bold">Participantes</dt><dd>{contest.participants.toLocaleString('es')}</dd></div>
+            </dl>
+          </li>
+        ))}
+      </ul>
+      <div class="panel-elevated hidden overflow-hidden md:block">
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">Lista de contests pasados con formato, fecha y participantes</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Formato</th>
+                <th scope="col">Inicio</th>
+                <th scope="col">Duracion</th>
+                <th scope="col">Participantes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {past.map((contest) => (
+                <tr>
+                  <td><a href="/contests" class="font-semibold">{contest.name}</a></td>
+                  <td><span class="chip chip-soft">{contest.format}</span></td>
+                  <td class="text-sm" style="color: var(--color-muted);">{contest.startTime}</td>
+                  <td class="text-sm">{contest.duration}</td>
+                  <td class="text-sm font-semibold">{contest.participants.toLocaleString('es')}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </section>
+</BaseLayout>
