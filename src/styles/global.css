@@ -147,6 +147,16 @@ textarea {
   font: inherit;
 }
 
+select {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+select option {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
 button,
 a,
 input,
