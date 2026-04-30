@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import DifficultyBadge from '@/components/DifficultyBadge.astro';
 import SubmitForm from '@/components/SubmitForm';
+import { BookOpenText, CheckCircle2, Gauge, HardDrive, Send, Timer } from 'lucide-react';
 import { problems } from '@/data/problems';
 
 export function getStaticPaths() {
@@ -24,15 +25,18 @@ const { problem } = Astro.props;
         {problem.tags.map((tag) => <span class="chip">{tag}</span>)}
       </div>
       <dl class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <div class="stat-card"><dt>Tiempo</dt><dd class="text-base">{problem.timeLimit}</dd></div>
-        <div class="stat-card"><dt>Memoria</dt><dd class="text-base">{problem.memoryLimit}</dd></div>
-        <div class="stat-card"><dt>Resueltos</dt><dd class="text-base">{problem.solvedCount.toLocaleString('es')}</dd></div>
-        <div class="stat-card"><dt>Dificultad</dt><dd class="text-base">{problem.difficulty}</dd></div>
+        <div class="stat-card"><dt class="flex items-center gap-1.5"><Timer aria-hidden="true" size={16} />Tiempo</dt><dd class="text-base">{problem.timeLimit}</dd></div>
+        <div class="stat-card"><dt class="flex items-center gap-1.5"><HardDrive aria-hidden="true" size={16} />Memoria</dt><dd class="text-base">{problem.memoryLimit}</dd></div>
+        <div class="stat-card"><dt class="flex items-center gap-1.5"><CheckCircle2 aria-hidden="true" size={16} />Resueltos</dt><dd class="text-base">{problem.solvedCount.toLocaleString('es')}</dd></div>
+        <div class="stat-card"><dt class="flex items-center gap-1.5"><Gauge aria-hidden="true" size={16} />Dificultad</dt><dd class="text-base">{problem.difficulty}</dd></div>
       </dl>
     </header>
 
     <section class="panel-elevated p-6" aria-labelledby="statement-title">
-      <h2 id="statement-title" class="text-2xl">Enunciado</h2>
+      <h2 id="statement-title" class="flex items-center gap-2 text-2xl">
+        <BookOpenText aria-hidden="true" size={24} />
+        Enunciado
+      </h2>
       <div class="mt-4 grid gap-3 text-base leading-relaxed">
         {problem.statement.map((paragraph) => <p>{paragraph}</p>)}
       </div>
@@ -60,7 +64,10 @@ const { problem } = Astro.props;
     </section>
 
     <section aria-labelledby="submit-title" class="grid gap-3">
-      <h2 id="submit-title" class="text-2xl">Enviar solucion</h2>
+      <h2 id="submit-title" class="flex items-center gap-2 text-2xl">
+        <Send aria-hidden="true" size={24} />
+        Enviar solucion
+      </h2>
       <SubmitForm client:load problemId={problem.id} />
     </section>
   </article>

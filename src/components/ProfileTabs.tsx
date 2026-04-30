@@ -1,4 +1,5 @@
 import * as Tabs from '@radix-ui/react-tabs';
+import { BarChart3, CheckCircle2, ClipboardList, Gauge } from 'lucide-react';
 import RatingChart from '@/components/RatingChart';
 import type { Submission } from '@/data/submissions';
 import type { UserProfile } from '@/data/users';
@@ -17,12 +18,13 @@ export default function ProfileTabs({ user, submissions, chartLabel }: Props) {
     <Tabs.Root defaultValue="resumen" className="grid gap-4">
       <Tabs.List className="panel flex flex-wrap gap-2 p-2" aria-label="Secciones del perfil">
         {[
-          ['resumen', 'Resumen'],
-          ['envios', 'Envios'],
-          ['rating', 'Rating'],
-          ['resueltos', 'Problemas resueltos'],
-        ].map(([value, label]) => (
+          { value: 'resumen', label: 'Resumen', icon: Gauge },
+          { value: 'envios', label: 'Envios', icon: ClipboardList },
+          { value: 'rating', label: 'Rating', icon: BarChart3 },
+          { value: 'resueltos', label: 'Problemas resueltos', icon: CheckCircle2 },
+        ].map(({ value, label, icon: Icon }) => (
           <Tabs.Trigger key={value} value={value} className="btn btn-ghost tab-trigger">
+            <Icon aria-hidden="true" size={17} />
             {label}
           </Tabs.Trigger>
         ))}

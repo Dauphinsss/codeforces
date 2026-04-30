@@ -3,14 +3,18 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import RecentSubmissions from '@/components/RecentSubmissions.astro';
 import SubmitForm from '@/components/SubmitForm';
+import { Send } from 'lucide-react';
 ---
 
 <BaseLayout title="Enviar">
-  <section class="mx-auto grid max-w-4xl gap-5" aria-labelledby="submit-page-title">
+  <section class="grid gap-5" aria-labelledby="submit-page-title">
     <Breadcrumbs items={[{ label: 'Enviar' }]} />
     <header class="hero">
       <p class="section-label">Envio</p>
-      <h1 id="submit-page-title" class="mt-2">Enviar solucion</h1>
+      <h1 id="submit-page-title" class="mt-2 flex items-center gap-2">
+        <Send aria-hidden="true" size={32} />
+        Enviar solucion
+      </h1>
       <p class="mt-2" style="color: var(--color-muted-strong);">
         Selecciona el problema, elige el lenguaje y envia tu codigo al juez de practica.
       </p>

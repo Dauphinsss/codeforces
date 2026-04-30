@@ -1,12 +1,13 @@
 ---
 import PreferencesPanel from '@/components/PreferencesPanel';
+import { CalendarDays, Home, LogIn, Send, Settings, Trophy, UserRound, UserRoundPlus } from 'lucide-react';
 
 const nav = [
-  { href: '/', label: 'Inicio' },
-  { href: '/problemset', label: 'Problemas' },
-  { href: '/contests', label: 'Contests' },
-  { href: '/submit', label: 'Enviar' },
-  { href: '/profile/accessiblecoder', label: 'Perfil' },
+  { href: '/', label: 'Inicio', icon: Home },
+  { href: '/problemset', label: 'Problemas', icon: Trophy },
+  { href: '/contests', label: 'Contests', icon: CalendarDays },
+  { href: '/submit', label: 'Enviar', icon: Send },
+  { href: '/profile/accessiblecoder', label: 'Perfil', icon: UserRound },
 ];
 
 const path = Astro.url.pathname;
@@ -17,7 +18,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
   class="sticky top-0 z-30 border-b backdrop-blur"
   style="border-color: var(--color-border); background: color-mix(in srgb, var(--color-surface) 88%, transparent);"
 >
-  <div class="container flex items-center justify-between gap-3 py-3">
+  <div class="flex w-full items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
     <div class="flex min-w-0 items-center gap-3">
       <a
         href="/"
@@ -25,14 +26,26 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
         style="color: var(--color-text-strong);"
         aria-label="Accessibleforces, ir al inicio"
       >
-        <span
-          aria-hidden="true"
-          class="grid h-9 w-9 place-items-center rounded-md font-black"
-          style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: var(--color-primary-text); box-shadow: var(--shadow-sm);"
-        >
-          A
+        <span class="brand-logo-wrap" aria-hidden="true">
+          <img
+            src="/logo-claro.png"
+            alt=""
+            width="435"
+            height="120"
+            class="brand-logo brand-logo-light"
+            loading="eager"
+            decoding="async"
+          />
+          <img
+            src="/logo-oscuro.png"
+            alt=""
+            width="434"
+            height="119"
+            class="brand-logo brand-logo-dark"
+            loading="eager"
+            decoding="async"
+          />
         </span>
-        <span class="brand-title text-lg font-black tracking-tight sm:text-xl">Accessibleforces</span>
       </a>
       <span class="hidden chip chip-soft lg:inline-flex">Practice arena</span>
     </div>
@@ -41,15 +54,17 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       <nav aria-label="Navegacion principal" class="flex flex-wrap items-center gap-1">
         {nav.map((item) => {
           const active = isActive(item.href);
+          const Icon = item.icon;
           return (
             <a
-              class="relative inline-flex min-h-11 items-center rounded-md px-3 py-2 font-semibold no-underline transition-colors"
+              class="relative inline-flex min-h-11 items-center gap-2 rounded-md px-3 py-2 font-semibold no-underline transition-colors"
               href={item.href}
               aria-current={active ? 'page' : undefined}
               style={active
                 ? 'background: color-mix(in srgb, var(--color-primary) 12%, transparent); color: var(--color-primary);'
                 : 'color: var(--color-text);'}
             >
+              <Icon aria-hidden="true" size={17} />
               {item.label}
             </a>
           );
@@ -57,10 +72,10 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       </nav>
 
       <div class="flex flex-wrap items-center gap-2">
-        <a class="btn btn-ghost" href="/enter">Entrar</a>
-        <a class="btn btn-primary" href="/register">Registrarse</a>
+        <a class="btn btn-ghost" href="/enter"><LogIn aria-hidden="true" size={17} />Entrar</a>
+        <a class="btn btn-primary" href="/register"><UserRoundPlus aria-hidden="true" size={17} />Registrarse</a>
         <details class="relative">
-          <summary class="btn btn-ghost list-none cursor-pointer">Preferencias</summary>
+          <summary class="btn btn-ghost list-none cursor-pointer"><Settings aria-hidden="true" size={17} />Preferencias</summary>
           <div
             class="absolute right-0 mt-2 w-[min(92vw,24rem)] rounded-md border p-3 shadow-lg"
             style="border-color: var(--color-border); background: var(--color-surface);"
@@ -80,31 +95,33 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
         </span>
       </summary>
       <div
-        class="absolute right-0 mt-2 grid w-[min(92vw,24rem)] gap-4 rounded-md border p-4 shadow-lg"
+        class="mobile-menu-panel fixed inset-x-0 bottom-0 top-[4.25rem] grid content-start gap-4 overflow-y-auto border-y p-4 shadow-lg lg:hidden"
         style="border-color: var(--color-border); background: var(--color-surface);"
       >
-        <nav aria-label="Navegacion principal movil" class="grid gap-1">
+        <nav aria-label="Navegacion principal movil" class="container grid gap-2">
           {nav.map((item) => {
             const active = isActive(item.href);
+            const Icon = item.icon;
             return (
               <a
-                class="inline-flex min-h-11 items-center rounded-md px-3 py-2 font-semibold no-underline"
+                class="inline-flex min-h-11 w-full items-center gap-2 rounded-md px-3 py-3 font-semibold no-underline"
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
                 style={active
                   ? 'background: color-mix(in srgb, var(--color-primary) 12%, transparent); color: var(--color-primary);'
                   : 'color: var(--color-text);'}
               >
+                <Icon aria-hidden="true" size={17} />
                 {item.label}
               </a>
             );
           })}
         </nav>
-        <div class="grid gap-2">
-          <a class="btn btn-ghost justify-start" href="/enter">Entrar</a>
-          <a class="btn btn-primary justify-start" href="/register">Registrarse</a>
+        <div class="container grid gap-2">
+          <a class="btn btn-ghost justify-start" href="/enter"><LogIn aria-hidden="true" size={17} />Entrar</a>
+          <a class="btn btn-primary justify-start" href="/register"><UserRoundPlus aria-hidden="true" size={17} />Registrarse</a>
         </div>
-        <div class="border-t pt-3" style="border-color: var(--color-border);">
+        <div class="container border-t pt-3" style="border-color: var(--color-border);">
           <PreferencesPanel client:load />
         </div>
       </div>

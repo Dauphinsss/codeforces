@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import GlossaryTooltip from '@/components/GlossaryTooltip';
+import { CalendarClock, History, Trophy } from 'lucide-react';
 import { contests } from '@/data/contests';
 
 const upcoming = contests.filter((c) => c.phase === 'proximo');
@@ -22,7 +23,10 @@ const past = contests.filter((c) => c.phase === 'pasado');
     {upcoming.length > 0 && (
       <section aria-labelledby="upcoming-title" class="grid gap-3">
         <div class="flex items-center justify-between">
-          <h2 id="upcoming-title" class="text-2xl">Proximos</h2>
+          <h2 id="upcoming-title" class="flex items-center gap-2 text-2xl">
+            <CalendarClock aria-hidden="true" size={24} />
+            Proximos
+          </h2>
           <span class="chip chip-success">{upcoming.length} programados</span>
         </div>
         <ul class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
@@ -34,7 +38,10 @@ const past = contests.filter((c) => c.phase === 'pasado');
                 <div class="flex justify-between gap-2"><dt style="color: var(--color-muted);">Inicio</dt><dd class="font-semibold">{contest.startTime}</dd></div>
                 <div class="flex justify-between gap-2"><dt style="color: var(--color-muted);">Duracion</dt><dd class="font-semibold">{contest.duration}</dd></div>
               </dl>
-              <a class="btn btn-primary mt-4 w-full" href="/contests" aria-label={`Inscribirme en ${contest.name}`}>Inscribirme</a>
+              <a class="btn btn-primary mt-4 w-full" href="/contests" aria-label={`Inscribirme en ${contest.name}`}>
+                <Trophy aria-hidden="true" size={17} />
+                Inscribirme
+              </a>
             </li>
           ))}
         </ul>
@@ -43,7 +50,10 @@ const past = contests.filter((c) => c.phase === 'pasado');
 
     <section aria-labelledby="past-title" class="grid gap-3">
       <div class="flex items-center justify-between">
-        <h2 id="past-title" class="text-2xl">Pasados</h2>
+        <h2 id="past-title" class="flex items-center gap-2 text-2xl">
+          <History aria-hidden="true" size={24} />
+          Pasados
+        </h2>
         <span class="chip">{past.length} contests</span>
       </div>
       <ul class="grid gap-3 md:hidden">

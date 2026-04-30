@@ -3,14 +3,18 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import AuthForm from '@/components/AuthForm';
 import GlossaryTooltip from '@/components/GlossaryTooltip';
+import { LogIn } from 'lucide-react';
 ---
 
 <BaseLayout title="Entrar">
-  <section class="mx-auto grid max-w-2xl gap-5" aria-labelledby="login-title">
+  <section class="grid gap-5" aria-labelledby="login-title">
     <Breadcrumbs items={[{ label: 'Entrar' }]} />
     <header class="hero">
       <p class="section-label">Acceso</p>
-      <h1 id="login-title" class="mt-2">Entrar a Accessibleforces</h1>
+      <h1 id="login-title" class="mt-2 flex items-center gap-2">
+        <LogIn aria-hidden="true" size={32} />
+        Entrar a Accessibleforces
+      </h1>
       <p class="mt-2" style="color: var(--color-muted-strong);">
         Usa tu <GlossaryTooltip client:load term="handle" description="Nombre publico que identifica tus envios, perfil y participacion en contests." /> para acceder a la demo.
       </p>

@@ -5,7 +5,32 @@ const year = new Date().getFullYear();
 <footer class="mt-12 border-t" style="border-color: var(--color-border); background: var(--color-surface);">
   <div class="container grid gap-6 py-8 md:grid-cols-[2fr_1fr_1fr]">
     <div>
-      <p class="text-base font-bold" style="color: var(--color-text-strong);">Accessibleforces</p>
+      <a
+        href="/"
+        class="inline-flex min-h-11 items-center rounded-md no-underline"
+        aria-label="Accessibleforces, ir al inicio"
+      >
+        <span class="brand-logo-wrap footer-brand-logo" aria-hidden="true">
+          <img
+            src="/logo-claro.png"
+            alt=""
+            width="435"
+            height="120"
+            class="brand-logo brand-logo-light"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="/logo-oscuro.png"
+            alt=""
+            width="434"
+            height="119"
+            class="brand-logo brand-logo-dark"
+            loading="lazy"
+            decoding="async"
+          />
+        </span>
+      </a>
       <p class="mt-1 text-sm" style="color: var(--color-muted);">
         Plataforma demo para entrenar problemas, contests y perfiles de programacion competitiva.
       </p>

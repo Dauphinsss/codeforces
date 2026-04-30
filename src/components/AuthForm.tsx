@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AlertCircle, CheckCircle2 } from 'lucide-react';
+import { AlertCircle, CheckCircle2, LogIn, UserRoundPlus } from 'lucide-react';
 
 interface Props {
   mode: 'login' | 'register';
@@ -109,6 +109,7 @@ export default function AuthForm({ mode }: Props) {
       )}
 
       <button className="btn btn-primary mt-2" type="submit">
+        {isRegister ? <UserRoundPlus aria-hidden="true" size={17} /> : <LogIn aria-hidden="true" size={17} />}
         {isRegister ? 'Registrarme' : 'Entrar'}
       </button>
 

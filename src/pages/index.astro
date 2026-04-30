@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import DifficultyBadge from '@/components/DifficultyBadge.astro';
 import GlossaryTooltip from '@/components/GlossaryTooltip';
+import { ArrowRight, CalendarDays, ClipboardCheck, Code2, Megaphone, Send, Sparkles, Trophy, UsersRound } from 'lucide-react';
 import { contests } from '@/data/contests';
 import { problems } from '@/data/problems';
 import { users } from '@/data/users';
@@ -23,22 +24,25 @@ const featured = problems.slice(0, 5);
         Resuelve problemas por dificultad, participa en contests y revisa tus envios recientes desde un solo lugar.
       </p>
       <div class="mt-5 flex flex-wrap gap-2">
-        <a class="btn btn-primary" href="/problemset">Explorar problemas</a>
-        <a class="btn" href="/contests">Ver contests</a>
-        <a class="btn btn-ghost" href="/register">Crear cuenta</a>
+        <a class="btn btn-primary" href="/problemset"><Trophy aria-hidden="true" size={17} />Explorar problemas</a>
+        <a class="btn" href="/contests"><CalendarDays aria-hidden="true" size={17} />Ver contests</a>
+        <a class="btn btn-ghost" href="/register"><UsersRound aria-hidden="true" size={17} />Crear cuenta</a>
       </div>
       <dl class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <div class="stat-card"><dt>Problemas</dt><dd>{problems.length}+</dd></div>
-        <div class="stat-card"><dt>Contests</dt><dd>{contests.length}</dd></div>
-        <div class="stat-card"><dt>Coders activos</dt><dd>{users.length * 2400}</dd></div>
-        <div class="stat-card"><dt>Rondas</dt><dd>{contests.filter((contest) => contest.phase === 'proximo').length}</dd></div>
+        <div class="stat-card"><dt class="flex items-center gap-1.5"><Code2 aria-hidden="true" size={16} />Problemas</dt><dd>{problems.length}+</dd></div>
+        <div class="stat-card"><dt class="flex items-center gap-1.5"><CalendarDays aria-hidden="true" size={16} />Contests</dt><dd>{contests.length}</dd></div>
+        <div class="stat-card"><dt class="flex items-center gap-1.5"><UsersRound aria-hidden="true" size={16} />Coders activos</dt><dd>{users.length * 2400}</dd></div>
+        <div class="stat-card"><dt class="flex items-center gap-1.5"><Sparkles aria-hidden="true" size={16} />Rondas</dt><dd>{contests.filter((contest) => contest.phase === 'proximo').length}</dd></div>
       </dl>
     </section>
 
     <div class="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
       <div class="grid gap-6">
         <section class="panel-elevated p-6" aria-labelledby="quick-start-title">
-          <h2 id="quick-start-title" class="text-2xl">Ruta rapida</h2>
+          <h2 id="quick-start-title" class="flex items-center gap-2 text-2xl">
+            <Sparkles aria-hidden="true" size={24} />
+            Ruta rapida
+          </h2>
           <ol class="mt-4 grid gap-3 md:grid-cols-3">
             <li class="panel p-4">
               <p class="chip chip-soft">1</p>
@@ -60,7 +64,10 @@ const featured = problems.slice(0, 5);
 
         <section class="panel-elevated p-6" aria-labelledby="announcements-title">
           <div class="flex items-center justify-between gap-3">
-            <h2 id="announcements-title" class="text-2xl">Anuncios</h2>
+            <h2 id="announcements-title" class="flex items-center gap-2 text-2xl">
+              <Megaphone aria-hidden="true" size={24} />
+              Anuncios
+            </h2>
             <span class="chip chip-soft">Hoy</span>
           </div>
           <div class="mt-4 grid gap-4">
@@ -89,8 +96,11 @@ const featured = problems.slice(0, 5);
 
         <section aria-labelledby="featured-title" class="panel-elevated p-6">
           <div class="flex items-center justify-between">
-            <h2 id="featured-title" class="text-2xl">Problemas destacados</h2>
-            <a class="text-sm font-semibold" href="/problemset">Ver todos →</a>
+            <h2 id="featured-title" class="flex items-center gap-2 text-2xl">
+              <ClipboardCheck aria-hidden="true" size={24} />
+              Problemas destacados
+            </h2>
+            <a class="inline-flex min-h-11 items-center gap-1 text-sm font-semibold" href="/problemset">Ver todos <ArrowRight aria-hidden="true" size={16} /></a>
           </div>
           <ul class="mt-4 grid gap-2">
             {featured.map((problem) => (
@@ -120,7 +130,10 @@ const featured = problems.slice(0, 5);
 
       <aside class="grid gap-6" aria-label="Resumen lateral">
         <section class="panel-elevated p-6" aria-labelledby="contests-title">
-          <h2 id="contests-title" class="text-xl">Proximos contests</h2>
+          <h2 id="contests-title" class="flex items-center gap-2 text-xl">
+            <CalendarDays aria-hidden="true" size={21} />
+            Proximos contests
+          </h2>
           <ul class="mt-3 grid gap-3">
             {upcoming.map((contest) => (
               <li class="rounded-md border p-3" style="border-color: var(--color-border);">
@@ -136,7 +149,10 @@ const featured = problems.slice(0, 5);
         </section>
 
         <section class="panel-elevated p-6" aria-labelledby="top-title">
-          <h2 id="top-title" class="text-xl">Top rated</h2>
+          <h2 id="top-title" class="flex items-center gap-2 text-xl">
+            <Trophy aria-hidden="true" size={21} />
+            Top rated
+          </h2>
           <p class="mt-1 text-sm" style="color: var(--color-muted);">
             <GlossaryTooltip client:load term="rating" description="Puntaje numerico que estima rendimiento competitivo. Sube o baja despues de contests oficiales." />
           </p>

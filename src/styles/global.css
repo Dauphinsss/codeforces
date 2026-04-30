@@ -211,6 +211,40 @@ h3 {
   margin-inline: auto;
 }
 
+.brand-logo-wrap {
+  position: relative;
+  display: block;
+  width: clamp(8.75rem, 30vw, 11.75rem);
+  height: clamp(2.4rem, 8.25vw, 3.25rem);
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.brand-logo-dark {
+  display: none;
+}
+
+:root[data-theme='dark'] .brand-logo-light {
+  display: none;
+}
+
+:root[data-theme='dark'] .brand-logo-dark {
+  display: block;
+}
+
+.footer-brand-logo {
+  width: clamp(9.5rem, 34vw, 13rem);
+  height: clamp(2.65rem, 9vw, 3.6rem);
+}
+
 .panel {
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
@@ -291,6 +325,10 @@ h3 {
 .menu-line {
   transition: transform 140ms ease, opacity 140ms ease;
   transform-origin: center;
+}
+
+.mobile-menu-panel {
+  max-height: calc(100dvh - 4.25rem);
 }
 
 details[open] .menu-line-top {

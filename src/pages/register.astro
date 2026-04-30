@@ -2,14 +2,18 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import AuthForm from '@/components/AuthForm';
+import { UserRoundPlus } from 'lucide-react';
 ---
 
 <BaseLayout title="Registro">
-  <section class="mx-auto grid max-w-2xl gap-5" aria-labelledby="register-title">
+  <section class="grid gap-5" aria-labelledby="register-title">
     <Breadcrumbs items={[{ label: 'Registro' }]} />
     <header class="hero">
       <p class="section-label">Nueva cuenta</p>
-      <h1 id="register-title" class="mt-2">Crear cuenta</h1>
+      <h1 id="register-title" class="mt-2 flex items-center gap-2">
+        <UserRoundPlus aria-hidden="true" size={32} />
+        Crear cuenta
+      </h1>
       <p class="mt-2" style="color: var(--color-muted-strong);">
         Elige tu handle publico y completa los datos de acceso para entrar a la demo.
       </p>

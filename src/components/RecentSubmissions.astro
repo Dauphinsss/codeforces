@@ -1,13 +1,17 @@
 ---
 import { submissions } from '@/data/submissions';
 import { verdictClass, verdictLabel } from '@/utils/accessibility';
+import { ClipboardList } from 'lucide-react';
 
 const recent = submissions.slice(0, 6);
 ---
 
 <section class="panel-elevated p-6" aria-labelledby="recent-submissions-title">
   <div class="flex flex-wrap items-center justify-between gap-3">
-    <h2 id="recent-submissions-title" class="text-2xl">Envios recientes</h2>
+    <h2 id="recent-submissions-title" class="flex items-center gap-2 text-2xl">
+      <ClipboardList aria-hidden="true" size={24} />
+      Envios recientes
+    </h2>
     <span class="chip chip-soft">{recent.length} ultimos</span>
   </div>
   <ul class="mt-4 grid gap-3 md:hidden">
