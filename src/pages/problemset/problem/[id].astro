@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import DifficultyBadge from '@/components/DifficultyBadge.astro';
 import SubmitForm from '@/components/SubmitForm';
 import { problems } from '@/data/problems';
@@ -13,11 +14,7 @@ const { problem } = Astro.props;
 
 <BaseLayout title={`${problem.id}. ${problem.title}`}>
   <article class="grid gap-6">
-    <nav aria-label="Migas de pan" class="text-sm" style="color: var(--color-muted);">
-      <a href="/problemset" class="hover:underline">Problemset</a>
-      <span aria-hidden="true"> / </span>
-      <span>#{problem.id}</span>
-    </nav>
+    <Breadcrumbs items={[{ label: 'Problemset', href: '/problemset' }, { label: `#${problem.id}` }]} />
 
     <header class="hero">
       <p class="section-label">Problema #{problem.id}</p>

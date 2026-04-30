@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import AuthForm from '@/components/AuthForm';
 import GlossaryTooltip from '@/components/GlossaryTooltip';
 ---
 
 <BaseLayout title="Entrar">
   <section class="mx-auto grid max-w-2xl gap-5" aria-labelledby="login-title">
+    <Breadcrumbs items={[{ label: 'Entrar' }]} />
     <header class="hero">
       <p class="section-label">Acceso</p>
       <h1 id="login-title" class="mt-2">Entrar a Accessibleforces</h1>

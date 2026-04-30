@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import ProblemFilters from '@/components/ProblemFilters';
 import { problems, tags } from '@/data/problems';
 ---
 
 <BaseLayout title="Problemset">
   <div class="grid gap-6">
+    <Breadcrumbs items={[{ label: 'Problemset' }]} />
     <section class="hero" aria-labelledby="problemset-title">
       <p class="section-label">Problemset</p>
       <h1 id="problemset-title" class="mt-2">Lista de problemas</h1>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import GlossaryTooltip from '@/components/GlossaryTooltip';
 import { contests } from '@/data/contests';
 
@@ -9,6 +10,7 @@ const past = contests.filter((c) => c.phase === 'pasado');
 
 <BaseLayout title="Contests">
   <section class="grid gap-6" aria-labelledby="contests-page-title">
+    <Breadcrumbs items={[{ label: 'Contests' }]} />
     <header class="hero">
       <p class="section-label">Calendario</p>
       <h1 id="contests-page-title" class="mt-2">Contests</h1>
